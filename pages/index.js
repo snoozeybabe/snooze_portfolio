@@ -1,65 +1,59 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
+import Homepage from '../components/Home';
+import profilImg from '../assets/img/its_me.PNG';
+
+// font-family: Kanit;
+// font-size: 72px;
+// font-weight: 400;
+// line-height: 45px;
+// letter-spacing: 0.03em;
+// text-align: left;
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+	return (
+		<div className=" grow container-sm flex   ">
+			<p className=" h-2/3 w-1/2 m-auto font-style-normal font-sans text-7xl font-[300]  tracking-wider ml-10 font-bold">
+				Hi there,
+				<br /> I’m <span>Drir Arezki</span>.<br /> 32 yo <br />
+				Bordeaux France 🇫🇷
+			</p>
+			<div className="h-2/3 w-1/2 m-auto ">
+				<Image
+					src={profilImg}
+					alt="Picture of the author"
+					width="421px"
+					height="421px"
+				/>
+			</div>
+		</div>
+	);
 }
+
+/* Moi 1 */
+
+// position: absolute;
+// width: 421px;
+// height: 426px;
+// left: 817px;
+// top: 259px;
+
+// background: url(Moi.jpg);
+// border-radius: 5px;
+
+// position: absolute;
+// width: 553px;
+// height: 358px;
+// left: 87px;
+// top: 306px;
+
+// font-family: 'Kanit';
+
+// line-height: 45px;
+// /* or 62% */
+// letter-spacing: 0.03em;
+// mix-blend-mode: color-dodge;
+// border: 2px solid #FEB139;
+// text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
