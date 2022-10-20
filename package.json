@@ -5,10 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p 8001",
-    "lint": "eslint .",
-    "lint:watch": "esw . --watch --cache",
-    "lint:watchAll": "esw . --watch",
+    "start": "next start -p 8001"
   },
   "dependencies": {
     "@svgr/webpack": "^6.5.0",
