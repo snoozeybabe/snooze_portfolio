@@ -8,6 +8,9 @@ import animationLoading from '../assets/lotties/site-construction.json';
 import TwitterSvg from '../assets/svg/twitter.svg';
 import LinkedinSvg from '../assets/svg/linkedin.svg';
 import Link from 'next/link';
+import Head from 'next/head';
+
+import useWindowSize from '../hooks/useWindowSize';
 
 function MyApp({ Component, pageProps }) {
 	const animationOptions = {
@@ -18,15 +21,47 @@ function MyApp({ Component, pageProps }) {
 			preserveAspectRatio: 'xMidYMid slice',
 		},
 	};
+
+	const size = useWindowSize();
+
+	const heightAnimation = sh => {
+		switch (true) {
+			case sh < 400:
+				return 280;
+				break;
+			case sh > 400 && sh < 640:
+				return 300;
+				break;
+			case sh >= 640 && sh <= 768:
+				return 450;
+				break;
+			default:
+				return 500;
+				break;
+		}
+	};
+
+	const animSize = heightAnimation(size.width);
 	return (
 		<ContextProvider>
 			<ThemeProvider enableSystem={false} attribute="class" defaultTheme="dark">
+				<Head>
+					<title>Arezki Drir</title>
+				</Head>
 				<div className="flex flex-col justify-center items-center text-lightYellow  dark:bg-darkBlue h-[100vh]">
-					<Lottie options={animationOptions} height={600} width={600} />
+					<Lottie
+						options={animationOptions}
+						height={animSize}
+						width={size.width}
+					/>
 					<span>Coming soon ...</span>
-					<button className="border border-lightYellow mt-[15px] w-[200px] h-[80px]">
+
+					<a
+						className="block text-center leading-[80px] border border-lightYellow mt-[15px] w-[200px] h-[80px] "
+						href="mailto:contact@arezkidrir.fr">
 						contact@arezkidrir.fr
-					</button>
+					</a>
+
 					<div className="flex flex-row items-center mt-[15px] w-[200px] justify-evenly">
 						<a
 							href="https://www.linkedin.com/in/arezkidrir/"
