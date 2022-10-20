@@ -47,6 +47,11 @@ function MyApp({ Component, pageProps }) {
 			<ThemeProvider enableSystem={false} attribute="class" defaultTheme="dark">
 				<Head>
 					<title>Arezki Drir</title>
+					<link
+						rel="apple-touch-icon"
+						sizes="180x180"
+						href="/apple-touch-icon.png"
+					/>
 				</Head>
 				<div className="flex flex-col justify-center items-center text-lightYellow  dark:bg-darkBlue h-[100vh]">
 					<Lottie
