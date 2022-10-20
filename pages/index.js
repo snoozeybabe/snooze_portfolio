@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Homepage from '../components/Home';
-import profilImg from '../assets/img/its_me.PNG';
+import profilImg from '../assets/img/its_me.png';
 
 // font-family: Kanit;
 // font-size: 72px;
