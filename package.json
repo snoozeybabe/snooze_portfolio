@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 8001",
+    "lint": "eslint .",
+    "lint:watch": "esw . --watch --cache",
+    "lint:watchAll": "esw . --watch",
   },
   "dependencies": {
     "@svgr/webpack": "^6.5.0",
@@ -17,6 +20,12 @@
     "react-dom": "18.2.0",
     "react-lottie": "^1.2.3"
   },
+  "repository": {
+    "type" : "git",
+    "url" : "git+https://github.com/snoozeybabe/snooze_portfolio.git"
+  },
+  "author": "Drir Arezki",
+  
   "devDependencies": {
     "autoprefixer": "^10.4.11",
     "postcss": "^8.4.16",
