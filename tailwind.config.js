@@ -19,6 +19,9 @@ module.exports = {
 			fontFamily: {
 				sans: ['Futura', ...defaultTheme.fontFamily.sans],
 			},
+			blur: {
+				xs: '2px',
+			},
 		},
 	},
 	plugins: [require('@tailwindcss/typography')],

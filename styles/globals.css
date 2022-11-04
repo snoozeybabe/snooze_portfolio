@@ -19,3 +19,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+
+@layer components {
+  .textStrokeTransparentDark {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #ff8367;
+  }
+
+  .textStrokeTransparentLight {
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #142850;
+  }
+}

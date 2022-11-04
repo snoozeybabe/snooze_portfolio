@@ -1,6 +1,14 @@
 import { ROUTES } from '../../utils/constant';
 
-export function globalState(state, action) {
+const initState = {
+	route: '/',
+	routeName: 'Welcome',
+	nextRouteName: '',
+	levelPrev: 0,
+	levelNext: 1,
+};
+
+export function globalState(state = initState, action) {
 	switch (action.type) {
 		case 'UPDATE_ROUTE':
 			const findIndexR = ROUTES.findIndex(r => r.path === action.payload);
@@ -20,6 +28,13 @@ export function globalState(state, action) {
 				prevRoutePath: ROUTES[findIndexR - 1]
 					? ROUTES[findIndexR - 1].path
 					: null,
+			};
+		case 'UPDATE_LEVEL':
+			console.log(state);
+			return {
+				...state,
+				levelPrev: state.levelPrev - 1,
+				levelNext: state.leveNext + 1,
 			};
 		default:
 			return state;

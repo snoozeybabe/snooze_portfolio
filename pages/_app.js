@@ -5,8 +5,7 @@ import { ContextProvider } from '../context';
 import { ThemeProvider } from 'next-themes';
 import Lottie from 'react-lottie';
 import animationLoading from '../assets/lotties/site-construction.json';
-import TwitterSvg from '../assets/svg/twitter.svg';
-import LinkedinSvg from '../assets/svg/linkedin.svg';
+
 import Link from 'next/link';
 import Head from 'next/head';
 
@@ -51,41 +50,13 @@ function MyApp({ Component, pageProps }) {
 						rel="apple-touch-icon"
 						sizes="180x180"
 						href="/apple-touch-icon.png"
+						crossOrigin="true"
 					/>
 				</Head>
-				<div className="flex flex-col justify-center items-center text-lightYellow  dark:bg-darkBlue h-[100vh]">
-					<Lottie
-						options={animationOptions}
-						height={animSize}
-						width={size.width}
-					/>
-					<span>Coming soon ...</span>
 
-					<a
-						className="block text-center leading-[80px] border border-lightYellow mt-[15px] w-[200px] h-[80px] "
-						href="mailto:contact@arezkidrir.fr">
-						contact@arezkidrir.fr
-					</a>
-
-					<div className="flex flex-row items-center mt-[15px] w-[200px] justify-evenly">
-						<a
-							href="https://www.linkedin.com/in/arezkidrir/"
-							target="_blank"
-							rel="noopener noreferrer">
-							<LinkedinSvg />
-						</a>
-						<a
-							href="https://twitter.com/DrirArezki"
-							target="_blank"
-							rel="noopener noreferrer">
-							<TwitterSvg />
-						</a>
-					</div>
-				</div>
-
-				{/*<Layout>
+				<Layout>
 					<Component {...pageProps} />
-	</Layout>*/}
+				</Layout>
 			</ThemeProvider>
 		</ContextProvider>
 	);
