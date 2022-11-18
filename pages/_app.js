@@ -12,15 +12,6 @@ import Head from 'next/head';
 import useWindowSize from '../hooks/useWindowSize';
 
 function MyApp({ Component, pageProps }) {
-	const animationOptions = {
-		loop: true,
-		autoPlay: true,
-		animationData: animationLoading,
-		renderSettings: {
-			preserveAspectRatio: 'xMidYMid slice',
-		},
-	};
-
 	const size = useWindowSize();
 
 	const heightAnimation = sh => {
@@ -53,10 +44,7 @@ function MyApp({ Component, pageProps }) {
 						crossOrigin="true"
 					/>
 				</Head>
-
-				<Layout>
-					<Component {...pageProps} />
-				</Layout>
+				<Component {...pageProps} />
 			</ThemeProvider>
 		</ContextProvider>
 	);

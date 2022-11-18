@@ -4,6 +4,19 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Homepage from '../components/Home';
 import profilImg from '../assets/img/IMAGE_ME.png';
+import Layout from '../components/Layout';
+import Contact from '../components/Contact';
+import About from '../components/About';
+import Skills from '../components/Skills';
+import Works from '../components/Works';
+import React, { useState } from 'react';
+import TwitterSvg from '../assets/svg/TwitterSvg.js';
+import LinkedinSvg from '../assets/svg/LinkedinSvg';
+import ThemeSvg from '../assets/svg/ThemeSvg';
+import HeisenbergSvg from '../assets/svg/heisenberg.svg';
+import ArrowDown from '../assets/svg/ArrowDown';
+import { useTheme } from 'next-themes';
+import { ROUTES } from '../utils/constant';
 
 /* Hi there, I’m Drir Arezki. 32 yo Bordeaux France 🇫🇷. */
 
@@ -12,52 +25,30 @@ import profilImg from '../assets/img/IMAGE_ME.png';
 // text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
 export default function Home() {
+	const { theme, setTheme } = useTheme();
+
+	const [nextIndex, setNextIdx] = useState(1);
+	const [prevIndex, setPrevIdx] = useState(0);
+	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
 	return (
-		<div className=" grow container-sm flex">
-			<p className=" h-2/3 w-1/2  font-style-normal font-sans text-7xl  tracking-wider ml-10 font-bold mt-[11%]">
-				Hi there,
-				<br /> I’m{' '}
-				<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">
-					Drir Arezki
-				</span>
-				.
-				<br /> 32 yo <br />
-				Bordeaux France 🇫🇷
-			</p>
-			<div className="h-2/3 w-1/2 m-auto flex items-center justify-center ">
-				<Image
-					src={profilImg}
-					alt="Picture of the author"
-					width="421px"
-					height="421px"
-				/>
+		<Layout>
+			<div className="h-auto w-[100%] bg-ligthBlue text-darkBlue dark:bg-darkBlue dark:text-lightOrange overflow-y-auto">
+				<div className="h-[100%] relative overflow-y-auto">
+					<Homepage />
+				</div>
+				<div className="h-[100%] relative  overflow-y-auto">
+					<About />
+				</div>
+				<div className="h-[100%] relative  overflow-y-auto">
+					<Skills />
+				</div>
+				<div className="h-[100%] relative  overflow-y-auto">
+					<Works />
+				</div>
+				<div className="h-[100%] relative  overflow-y-auto">
+					<Contact />
+				</div>
 			</div>
-		</div>
+		</Layout>
 	);
 }
-
-/* Moi 1 */
-
-// position: absolute;
-// width: 421px;
-// height: 426px;
-// left: 817px;
-// top: 259px;
-
-// background: url(Moi.jpg);
-// border-radius: 5px;
-
-// position: absolute;
-// width: 553px;
-// height: 358px;
-// left: 87px;
-// top: 306px;
-
-// font-family: 'Kanit';
-
-// line-height: 45px;
-// /* or 62% */
-// letter-spacing: 0.03em;
-// mix-blend-mode: color-dodge;
-// border: 2px solid #FEB139;
-// text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
