@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import ThemeSvg from '../assets/svg/ThemeSvg';
 import HeisenbergSvg from '../assets/svg/heisenberg.svg';
 import { GlobalContext } from '../context';
-const TestHeader = () => {
+const TestHeader = ({ previousLabel }) => {
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
 	const { theme, setTheme } = useTheme();
@@ -14,6 +14,22 @@ const TestHeader = () => {
 	const { state, dispatch } = useContext(GlobalContext);
 	const [themeLabel, setThemeLabel] = useState('Light');
 	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
+
+	const fadeInDown = [
+		{ opacity: '0', transform: 'translateY(-10px)' },
+		{ opacity: '1', transform: 'translateY(0)' },
+	];
+
+	const fadeInDownTiming = {
+		duration: 1000,
+		iterations: 1,
+		easing: 'ease-out',
+	};
+
+	useEffect(() => {
+		document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
+		return () => {};
+	}, [previousLabel]);
 
 	return (
 		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-darkBlue dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-lightOrange">
@@ -28,17 +44,19 @@ const TestHeader = () => {
 			<div className="m-0 h-16 flex flex-row  text-darkBlue dark:text-lightOrange">
 				<div className="w-[10%]"></div>
 				<div className="w-[70%] flex flex-row justify-center">
-					<Link href={ROUTES[prevIndex].path} className="w-5">
+					<Link href="#about" scroll={true} className="w-5">
 						<button
+							id="btnHeader"
+							className="ml-[13%]"
 							onClick={e => {
-								dispatch({
-									type: 'UPDATE_ROUTE',
-									payload: router.pathname,
-								});
-								setNextIdx(nextIndex - 1);
-								setPrevIdx(prevIndex === 0 ? 0 : prevIndex - 1);
+								// dispatch({
+								// 	type: 'UPDATE_ROUTE',
+								// 	payload: router.pathname,
+								// });
+								// setNextIdx(nextIndex - 1);
+								// setPrevIdx(prevIndex === 0 ? 0 : prevIndex - 1);
 							}}>
-							{ROUTES[prevIndex].routeName}
+							{previousLabel !== null ? previousLabel : 'Welcome'}
 						</button>
 					</Link>
 				</div>

@@ -22,6 +22,7 @@ a {
 
 
 
+
 @layer components {
   .textStrokeTransparentDark {
     color: transparent;
@@ -34,4 +35,36 @@ a {
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: #142850;
   }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scollableList {
+
+  background-image: 
+	
+    /* Shadows */ 
+    linear-gradient(to right, #142850, #142850),
+    linear-gradient(to right, #142850, #142850),
+  
+/* Shadow covers */ 
+    linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)),
+    linear-gradient(to left, rgba(0,0,0,.25), rgba(255,255,255,0));   
+
+  background-position: left center, right center, left center, right center;
+	background-repeat: no-repeat;
+	background-color: #142850;
+	background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+	
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
 }
