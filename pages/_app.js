@@ -31,6 +31,8 @@ function MyApp({ Component, pageProps }) {
 		}
 	};
 
+	console.log(size.width);
+
 	const animSize = heightAnimation(size.width);
 	return (
 		<ContextProvider>

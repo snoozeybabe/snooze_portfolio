@@ -26,8 +26,8 @@ import Image from 'next/image';
 
 export default function Home({ sHeight }) {
 	return (
-		<div className="max-w-screen-xl h-[100%] pt-10 grow container-sm flex items-center flex-col-reverse md:flex-row">
-			<p className="h-2/3  md:h-2/3 md:w-1/2  font-style-normal font-sans text-3xl lg:text-7xl tracking-wider m-auto md:ml-10 font-bold ">
+		<div className="relative h-[100%] pt-10 grow container-sm flex items-center flex-col-reverse md:flex-row">
+			<p className="h-2/3  md:h-2/3 md:w-1/2  font-style-normal font-sans text-3xl lg:text-7xl tracking-wider m-auto md:ml-[12px] font-bold py-[8%] ">
 				Hi there,
 				<br /> I’m{' '}
 				<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">

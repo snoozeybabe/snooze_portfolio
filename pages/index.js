@@ -18,25 +18,22 @@ import ArrowDown from '../assets/svg/ArrowDown';
 import { useTheme } from 'next-themes';
 import { ROUTES } from '../utils/constant';
 import { GlobalContext } from '../context';
+import useWindowSize from '../hooks/useWindowSize';
 
 export default function Home() {
 	const { theme, setTheme } = useTheme();
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
 	const [modScrollY, setModYScroll] = useState(0);
+	const size = useWindowSize();
 
 	const { state, dispatch } = useContext(GlobalContext);
 
 	const prevRefModScroll = useRef();
 
+	const isMobile = size.width < 480;
+
 	useEffect(() => {
-		// console.log(ROUTES[modScrollY > 0 ? modScrollY - 1 : 0].path);
-		// console.log(
-		// 	ROUTES[modScrollY + 1] ? ROUTES[modScrollY + 1].path : '/contact'
-		// );
-
-		console.log(ROUTES[modScrollY].path);
-
 		dispatch({
 			type: 'UPDATE_ROUTE',
 			payload: ROUTES[modScrollY + 1] ? ROUTES[modScrollY].path : '/contact',
@@ -56,6 +53,11 @@ export default function Home() {
 			.getElementById('mainContainer')
 			.addEventListener('scroll', scrollHandler);
 
+		dispatch({
+			type: 'UPDATE_SCREEN_SIZE',
+			payload: isMobile,
+		});
+
 		return () => {
 			document.removeEventListener('scroll', scrollHandler);
 		};
@@ -70,16 +72,16 @@ export default function Home() {
 					<Homepage />
 				</div>
 				<div className="h-[100%] relative overflow-y-auto" ref={myRef}>
-					<About />
+					<About isMobile={isMobile} />
 				</div>
 				<div className="h-[100%] relative  overflow-y-auto">
-					<Skills />
+					<Skills isMobile={isMobile} />
 				</div>
 				<div className="h-[100%] relative  overflow-y-auto">
-					<Works />
+					<Works isMobile={isMobile} />
 				</div>
 				<div className="h-[100%] relative  overflow-y-auto">
-					<Contact />
+					<Contact isMobile={isMobile} />
 				</div>
 			</div>
 		</Layout>

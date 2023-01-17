@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { GlobalContext } from '../context';
 
 function useWindowSize() {
 	const [windowSize, setWindowSize] = useState({
@@ -13,7 +14,6 @@ function useWindowSize() {
 				height: window.innerHeight,
 			});
 		}
-
 		window.addEventListener('resize', handleSize);
 
 		handleSize();

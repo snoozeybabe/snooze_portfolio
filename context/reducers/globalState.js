@@ -6,6 +6,7 @@ const initState = {
 	nextRouteName: '',
 	levelPrev: 0,
 	levelNext: 1,
+	isMobile: false,
 };
 
 export function globalState(state = initState, action) {
@@ -30,12 +31,17 @@ export function globalState(state = initState, action) {
 					: null,
 			};
 		case 'UPDATE_LEVEL':
-			console.log(state);
 			return {
 				...state,
 				levelPrev: state.levelPrev - 1,
 				levelNext: state.leveNext + 1,
 			};
+		case 'UPDATE_SCREEN_SIZE':
+			return {
+				...state,
+				isMobile: action.payload,
+			};
+
 		default:
 			return state;
 	}
