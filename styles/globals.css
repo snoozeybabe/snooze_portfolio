@@ -47,6 +47,69 @@ a {
   scrollbar-width: none;  /* Firefox */
 }
 
+
+#description_profil {
+  animation-name: from_left;
+  animation-duration: 3s;
+}
+
+
+
+#img_profil {
+  animation-name: from_right;
+  animation-duration: 3s;
+}
+
+#list_about {
+  animation-name: from_bottom;
+  animation-duration: 2s;
+}
+
+#animate_from_top {
+  animation-name: from_top;
+  animation-duration: 2s;
+}
+
+
+@keyframes from_right{
+  0%{
+  opacity : 0;
+  transform: translateX(30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_left{
+  0%{
+  opacity : 0;
+  transform: translateX(-30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_bottom{
+  0%{
+  opacity : 0;
+  transform: translateY(30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_top{
+  0%{
+  opacity : 0;
+  transform: translateY(-30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+
+
+
 .scollableList {
 
   background-image: 

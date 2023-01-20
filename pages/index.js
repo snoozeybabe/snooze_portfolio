@@ -25,6 +25,7 @@ export default function Home() {
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
 	const [modScrollY, setModYScroll] = useState(0);
+	const [scrollY, setScrollY] = useState(0);
 	const size = useWindowSize();
 
 	const { state, dispatch } = useContext(GlobalContext);
@@ -38,6 +39,10 @@ export default function Home() {
 			type: 'UPDATE_ROUTE',
 			payload: ROUTES[modScrollY + 1] ? ROUTES[modScrollY].path : '/contact',
 		});
+		dispatch({
+			type: 'UPDATE_SCREEN_POSITION',
+			payload: modScrollY,
+		});
 	}, [modScrollY]);
 	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
 	const myRef = useRef();
@@ -46,12 +51,13 @@ export default function Home() {
 		setTimeout(() => {
 			const scrollPos = e.target.scrollTop / myRef.current.offsetTop;
 			setModYScroll(Math.floor(scrollPos));
-		}, 1500);
+			setScrollY(scrollPos.toFixed(2));
+		}, 1000);
 	};
 	useEffect(() => {
 		document
 			.getElementById('mainContainer')
-			.addEventListener('scroll', scrollHandler);
+			.addEventListener('scroll', scrollHandler, { passive: true });
 
 		dispatch({
 			type: 'UPDATE_SCREEN_SIZE',
@@ -72,7 +78,7 @@ export default function Home() {
 					<Homepage />
 				</div>
 				<div className="h-[100%] relative overflow-y-auto" ref={myRef}>
-					<About isMobile={isMobile} />
+					<About isMobile={isMobile} position={scrollY} />
 				</div>
 				<div className="h-[100%] relative  overflow-y-auto">
 					<Skills isMobile={isMobile} />

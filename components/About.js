@@ -1,8 +1,8 @@
 import Head from 'next/head';
+import React from 'react';
 
-export default function About({ isMobile }) {
-	console.log('Is Mobile', isMobile);
-
+export default function About({ isMobile, position }) {
+	console.log('POSITION', position);
 	const aboutDatas = [
 		{
 			title: '2015 - Hybrid mobile development',
@@ -27,9 +27,11 @@ export default function About({ isMobile }) {
 	];
 
 	const getMobileRows = () => {
-		return aboutDatas.map(rm => {
+		return aboutDatas.map((rm, idx) => {
 			return (
 				<li
+					key={idx}
+					id="img_profil"
 					className="relative ml-[55px] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px]  after:ml-[-42px] after:z-[5] after:content-[''] after:absolute 
 				after:border-[1px] after:border-solid after:border-darkBlue dark:after:border-lightOrange after:pointer-events-none after:rotate-90">
 					<div className="relative flex flex-col">
@@ -46,15 +48,16 @@ export default function About({ isMobile }) {
 	const getDesktopRows = () => {
 		return aboutDatas.map((r, idx) => {
 			const isOdd = idx % 2;
-			console.log(isOdd);
 			return (
 				<li
+					key={idx}
 					className={`py-[1em] px-0 after:content-[''] after:block after:h-0 after:clear-both after:invisible relative w-[500px] h-[160px] ${
 						isOdd === 0
 							? 'float-left text-right left-[55%]'
 							: 'float-right right-[55%] '
 					}`}>
 					<div
+						id={isOdd ? 'img_profil' : 'description_profil'}
 						className={`relative  py-[6px] px-[10px] pl-[20px] rounded-[5px] font-medium text-left  h-[100%] ml-[10px]
 														after:content-[''] after:absolute ${
 															isOdd === 0
@@ -79,15 +82,21 @@ export default function About({ isMobile }) {
 				}xl mt-[2px] ml-10`}>
 				About me...
 			</span>
-			{isMobile ? (
-				<ul className="relative h-[95%]  border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between before:w-[5px]  before:h-[95%] before:absolute before:block before:ml-[-10px]  dark:before:bg-lightOrange before:content[''] before:z-[5] ">
-					{getMobileRows()}
-				</ul>
-			) : (
-				<ul className="relative w-[660px] my-0 mx-auto mt-[20px] list-none before:absolute before:left-[50%] before:top-0 before:block before:w-[6px] before:h-[100%] before:ml-[-3px]  dark:before:bg-lightOrange before:content[' '] before:z-[5] ">
-					{getDesktopRows()}
-				</ul>
-			)}
+			{position > 0.2 ? (
+				<React.Fragment>
+					{isMobile ? (
+						<ul className="relative h-[95%] mt-0  border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between before:w-[5px]  before:h-[95%] before:absolute before:block before:ml-[-10px]  dark:before:bg-lightOrange before:content[''] before:z-[5] ">
+							{getMobileRows()}
+						</ul>
+					) : (
+						<ul
+							id={isMobile ? 'animate_from_top' : 'list_about'}
+							className="relative w-[660px] my-0 mx-auto list-none before:absolute before:left-[50%] before:top-0 before:block before:w-[6px] before:h-[100%] before:ml-[-3px]  dark:before:bg-lightOrange before:content[' '] before:z-[5] ">
+							{getDesktopRows()}
+						</ul>
+					)}
+				</React.Fragment>
+			) : null}
 		</div>
 	);
 }

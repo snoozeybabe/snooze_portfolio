@@ -26,25 +26,34 @@ import Image from 'next/image';
 
 export default function Home({ sHeight }) {
 	return (
-		<div className="relative h-[100%] pt-10 grow container-sm flex items-center flex-col-reverse md:flex-row">
-			<p className="h-2/3  md:h-2/3 md:w-1/2  font-style-normal font-sans text-3xl lg:text-7xl tracking-wider m-auto md:ml-[12px] font-bold py-[8%] ">
-				Hi there,
-				<br /> I’m{' '}
-				<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">
-					Drir Arezki
-				</span>
-				.
-				<br /> 32 yo, <br />
-				Bordeaux France 🇫🇷
-			</p>
-			<span>{sHeight}</span>
-			<div className=" w-2/3 h-3/4 md:h-2/3 md:w-1/2 m-auto flex items-center justify-center">
-				<Image
-					src={profilImg}
-					alt="Picture of the author"
-					width="421px"
-					height="421px"
-				/>
+		<div className="relative h-[100%] grow container-sm flex items-center flex-col-reverse md:flex-row">
+			<div
+				className="relative w-1/2 flex justify-center items-center"
+				id="description_profil">
+				<p className="h-2/3 md:h-2/3 w-[80%] mt-0  font-style-normal font-sans text-3xl lg:text-7xl tracking-wider  md:ml-[12px] font-bold  ">
+					Hi there,
+					<br /> I’m{' '}
+					<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">
+						Drir Arezki
+					</span>
+					.
+					<br /> 32 yo, <br />
+					Bordeaux
+					<br />
+					France 🇫🇷
+				</p>
+			</div>
+			<div
+				className="relative sm:w-2/4  sm:h-2/4 md:w-1/2 m-auto flex items-center justify-center min-w-[250px] min-h-[250px] "
+				id="img_profil">
+				<div className="absolute md:top-[-10px] md:left-[80px] md:w-[420px] md:h-[420px] min-w-[250px] min-h-[250px] sm:mt-[-30px]  z-[1000]">
+					<Image
+						src={profilImg}
+						alt="Picture of the author"
+						className="min-w-[200px]"
+					/>
+				</div>
+				<div className=" border dark:border-lightYellow md:w-[420px] md:h-[420px] h-[100%] w-[100%] md:top-[-5px] md:left-[70px] sm:mt-[40px] sm:ml-[40px]"></div>
 			</div>
 		</div>
 	);

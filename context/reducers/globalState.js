@@ -7,6 +7,7 @@ const initState = {
 	levelPrev: 0,
 	levelNext: 1,
 	isMobile: false,
+	position: 0,
 };
 
 export function globalState(state = initState, action) {
@@ -41,7 +42,12 @@ export function globalState(state = initState, action) {
 				...state,
 				isMobile: action.payload,
 			};
-
+		case 'UPDATE_SCREEN_POSITION': {
+			return {
+				...state,
+				position: action.payload,
+			};
+		}
 		default:
 			return state;
 	}
