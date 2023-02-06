@@ -50,7 +50,7 @@ a {
 
 #description_profil {
   animation-name: from_left;
-  animation-duration: 3s;
+  animation-duration: 2s;
 }
 
 
@@ -62,12 +62,12 @@ a {
 
 #list_about {
   animation-name: from_bottom;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 #animate_from_top {
   animation-name: from_top;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 

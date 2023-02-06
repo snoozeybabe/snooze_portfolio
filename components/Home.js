@@ -3,34 +3,23 @@ import Homepage from '../components/Home';
 import profilImg from '../assets/img/IMAGE_ME.png';
 import Image from 'next/image';
 
-/* Hi there, I’m Drir Arezki. 32 yo Bordeaux France 🇫🇷. */
-
-// position: absolute;
-// width: 229px;
-// height: 193px;
-// left: 21px;
-// top: 291px;
-
-// font-family: 'Kanit';
-// font-style: normal;
-// font-weight: 300;
-// font-size: 34px;
-// line-height: 10px;
-// /* or 29% */
-// letter-spacing: 0.03em;
-
-// color: #FEB139;
-
-// mix-blend-mode: color-dodge;
-// border: 2px solid #FEB139;
-
 export default function Home({ sHeight }) {
 	return (
-		<div className="relative h-[100%] grow container-sm flex items-center flex-col-reverse md:flex-row">
+		<div
+			className="relative h-[100%] grow flex justify-evenly items-center flex-col-reverse overflow-hidden 
+										sm:flex-col-reverse 
+										md:container-sm lg:flex-row">
 			<div
-				className="relative w-1/2 flex justify-center items-center"
+				className="relative flex w-auto h-[50%] ml-[10%]
+										md:w-[100%] md:h-[50%] 
+										lg:ml-0  lg:h-[100%] lg:w-[55%]
+										justify-center items-center"
 				id="description_profil">
-				<p className="h-2/3 md:h-2/3 w-[80%] mt-0  font-style-normal font-sans text-3xl lg:text-7xl tracking-wider  md:ml-[12px] font-bold  ">
+				<p
+					className="w-[100%]  h-auto mt-0 font-style-normal tracking-wider font-bold font-sans text-[3em] leading-none
+											sm:w-[100%] sm:top-3 md:text-[4em]
+											lg:text-[4em] lg:ml-[5vw]
+										  md:ml-[12px]">
 					Hi there,
 					<br /> I’m{' '}
 					<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">
@@ -44,17 +33,32 @@ export default function Home({ sHeight }) {
 				</p>
 			</div>
 			<div
-				className="relative sm:w-2/4  sm:h-2/4 md:w-1/2 m-auto flex items-center justify-center min-w-[250px] min-h-[250px] "
+				className="relative h-auto w-auto m-0 flex items-center justify-center
+									 sm:h-[50%] 
+									 md:m-auto md:w-2/4  md:h-2/4 md:min-w-[250px]  
+									 xl:min-h-[100%]"
 				id="img_profil">
-				<div className="absolute md:top-[-10px] md:left-[80px] md:w-[420px] md:h-[420px] min-w-[250px] min-h-[250px] sm:mt-[-30px]  z-[1000]">
+				<div
+					className="absolute w-[30vh] h-[30vh] left-auto top-auto flex items-center justify-center
+									   sm:w-[35vh] sm:h-[35vh]
+										 lg:w-[40vh] lg:h-[40vh]">
 					<Image
 						src={profilImg}
+						layout="fill"
+						objectFit="contain"
 						alt="Picture of the author"
-						className="min-w-[200px]"
 					/>
 				</div>
-				<div className=" border dark:border-lightYellow md:w-[420px] md:h-[420px] h-[100%] w-[100%] md:top-[-5px] md:left-[70px] sm:mt-[40px] sm:ml-[40px]"></div>
+				<div
+					className="border dark:border-lightYellow w-[30vh] h-[30vh] left-auto top-auto
+												sm:w-[35vh] sm:h-[35vh]
+												lg:w-[40vh] lg:h-[40vh] lg:mt-[40px] lg:ml-[40px]"></div>
 			</div>
 		</div>
 	);
 }
+
+// absolute w-[80%] h-[70%] top-[30px] left-[20px]
+// 										 sm:top-[1em] sm:left-[0em]
+// 										 md:w-[390px] md:h-[390px] md:min-w-[390px] md:min-h-[390px]
+// 										 lg:border z-[1000]

@@ -32,7 +32,7 @@ export default function Home() {
 
 	const prevRefModScroll = useRef();
 
-	const isMobile = size.width < 480;
+	const isMobile = size.width < 1020;
 
 	useEffect(() => {
 		dispatch({
@@ -73,20 +73,22 @@ export default function Home() {
 		<Layout>
 			<div
 				id="mainContainer"
-				className="h-[100vh] w-[100%] bg-ligthBlue text-darkYellow dark:bg-darkBlue dark:text-lightYellow overflow-y-auto">
-				<div className="h-[100%] relative overflow-y-auto">
+				className="h-[100vh] w-[100%] bg-ligthBlue text-darkYellow dark:bg-darkBlue dark:text-lightYellow overflow-y-auto snap-mandatory snap-y">
+				<div className="h-[100%] relative overflow-y-auto snap-center">
 					<Homepage />
 				</div>
-				<div className="h-[100%] relative overflow-y-auto" ref={myRef}>
+				<div
+					className="h-[100%] relative overflow-y-auto snap-center"
+					ref={myRef}>
 					<About isMobile={isMobile} position={scrollY} />
 				</div>
-				<div className="h-[100%] relative  overflow-y-auto">
+				<div className="h-[100%] relative  overflow-y-auto snap-center">
 					<Skills isMobile={isMobile} />
 				</div>
-				<div className="h-[100%] relative  overflow-y-auto">
+				<div className="h-[100%] relative  overflow-y-auto snap-center">
 					<Works isMobile={isMobile} />
 				</div>
-				<div className="h-[100%] relative  overflow-y-auto">
+				<div className="h-[100%] relative  overflow-y-auto snap-center">
 					<Contact isMobile={isMobile} />
 				</div>
 			</div>

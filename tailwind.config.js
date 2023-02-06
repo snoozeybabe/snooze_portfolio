@@ -21,6 +21,9 @@ module.exports = {
 			fontFamily: {
 				sans: ['Futura', ...defaultTheme.fontFamily.sans],
 			},
+			lineHeight: {
+				small: '95%',
+			},
 			blur: {
 				xs: '2px',
 			},

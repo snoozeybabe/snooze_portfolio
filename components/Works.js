@@ -1,8 +1,212 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef, useEffect } from 'react';
+import { calcLength, motion } from 'framer-motion';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+const tableData = {
+	headers: [
+		'id',
+		'year',
+		'company',
+		'id_parent',
+		'main_stack',
+		'project',
+		'description',
+		'is_data',
+	],
+	datas: [
+		{
+			id: 'BDX1',
+			year: '2013',
+			company: 'Sport Trader',
+			id_parent: 'NULL',
+			main_stack: 'excel_vba',
+			project: 'Sport Trader',
+			description:
+				'creating and handling excel application to manage football bets',
+			is_data: '0',
+		},
+		{
+			id: 'BDX2',
+			year: '2014',
+			company: 'IBS Online',
+			id_parent: 'NULL',
+			main_stack: 'prestashop',
+			project: 'Ibs Online',
+			description:
+				'developping prestashop e-commerce website for selling  baby stuffs ',
+			is_data: '0',
+		},
+		{
+			id: 'BDX3',
+			year: '2015',
+			company: 'L’Addition',
+			id_parent: 'NULL',
+			main_stack: 'titanium',
+			project: 'Caisse',
+			description:
+				'developping cash register application for restaurant and hotels',
+			is_data: '0',
+		},
+		{
+			id: 'BDX4',
+			year: '2017',
+			company: 'L’Addition',
+			id_parent: 'NULL',
+			main_stack: 'arcplan',
+			project: 'Reporting',
+			description: "creating BI dashboard and reports for l'Addition customers",
+			is_data: '1',
+		},
+		{
+			id: 'BDX5',
+			year: '2017',
+			company: 'L’Addition',
+			id_parent: 'BDX4',
+			main_stack: 'arplan',
+			project: 'Reporting - Specific report',
+			description:
+				'creating specifis report for restaurant manager,financial directors and more',
+			is_data: '1',
+		},
+		{
+			id: 'BDX6',
+			year: '2018',
+			company: 'L’Addition',
+			id_parent: 'BDX4',
+			main_stack: 'arcplan',
+			project: 'Reporting - TMA',
+			description: "maintinig and fixing L'Addition reporting",
+			is_data: '1',
+		},
+		{
+			id: 'BDX7',
+			year: '2018',
+			company: 'L’Addition',
+			id_parent: 'BDX4',
+			main_stack: 'arcplan',
+			project: 'Reporting- Training',
+			description:
+				"training customers and sales agent to use l'Addition reporting",
+			is_data: '1',
+		},
+		{
+			id: 'BDX8',
+			year: '2021',
+			company: 'L’Addition',
+			id_parent: 'NULL',
+			main_stack: 'react_js',
+			project: 'Reporting (new)',
+			description:
+				"moving l'Addition reporting from Arcplan software to a full js stack",
+			is_data: '1',
+		},
+		{
+			id: 'BDX9',
+			year: '2021',
+			company: 'L’Addition',
+			id_parent: 'BDX8',
+			main_stack: 'javascript',
+			project: 'Reporting (new) - CubeJS',
+			description: 'handling reportings datas with CubeJs',
+			is_data: '1',
+		},
+		{
+			id: 'BDX10',
+			year: '2021',
+			company: 'L’Addition',
+			id_parent: 'BDX8',
+			main_stack: 'javascript',
+			project: 'Reporting (new) - CubeJS ',
+			description: 'creating pre-aggregated reporting datas',
+			is_data: '1',
+		},
+		{
+			id: 'BDX11',
+			year: '2021',
+			company: 'Side Project',
+			id_parent: 'NULL',
+			main_stack: 'nextjs',
+			project: 'Sorami Thaï',
+			description:
+				'creating and developing a website for my best friend restaurant ',
+			is_data: '0',
+		},
+		{
+			id: 'BDX12',
+			year: '2021',
+			company: 'Side Project',
+			id_parent: 'NULL',
+			main_stack: 'wordpress',
+			project: 'Tizi-Electronic',
+			description: 'creating and developing a wordpress basic site',
+			is_data: '0',
+		},
+		{
+			id: 'BDX13',
+			year: '2022',
+			company: 'Side project',
+			id_parent: 'NULL',
+			main_stack: 'nextjs_tailwind',
+			project: 'My Portfolio',
+			description:
+				'creating and developing the website that you are actually using.',
+			is_data: '0',
+		},
+		{
+			id: 'BDX14',
+			year: '2022',
+			company: 'Certification',
+			id_parent: 'NULL',
+			main_stack: 'NULL',
+			project: 'AgilePM Certifcation',
+			description: 'learning and seek the AgilePM certification',
+			is_data: '0',
+		},
+		{
+			id: 'BDX15',
+			year: '2022',
+			company: 'L’Addition',
+			id_parent: 'NULL',
+			main_stack: 'node_js',
+			project: 'Customer Area - KPI',
+			description:
+				"modelling, creating and handling L'Addition customers area KPI",
+			is_data: '1',
+		},
+		{
+			id: 'BDX16',
+			year: '2022',
+			company: 'Side project',
+			id_parent: 'NULL',
+			main_stack: 'python',
+			project: 'Python',
+			description:
+				'learning the datas part of python and playing with some scripts',
+			is_data: '1',
+		},
+		{
+			id: 'BDX17',
+			year: '2023',
+			company: "L'Adddition",
+			id_parent: 'BDX12',
+			main_stack: 'node_js',
+			project: 'Customer Area - KPI',
+			description:
+				'creating the strategy and scripts to refresh and format KPI datas',
+			is_data: '1',
+		},
+	],
+};
+
 export default function Works({ isMobile }) {
 	const [runQuery, setRunQuery] = useState(false);
+	const [nextDisplay, setNextDisplay] = useState(1);
+	const [previousDisplay, setPreviousDisplay] = useState(0);
+	const [scrollTablePos, setScrollTablePos] = useState(0);
+	const [actualPosition, setActualPosition] = useState(0);
+	const router = useRouter();
 
 	const variantsBis = {
 		initial: { y: 10, opacity: 0 },
@@ -11,203 +215,111 @@ export default function Works({ isMobile }) {
 		transition: { delay: 1, duration: 0.2, type: 'tween' },
 	};
 
-	const tableData = {
-		headers: [
-			'id',
-			'year',
-			'company',
-			'id_parent',
-			'main_stack',
-			'project',
-			'description',
-			'is_data',
-		],
-		datas: [
-			{
-				id: 'BDX1',
-				year: '2013',
-				company: 'Sport Trader',
-				id_parent: 'NULL',
-				main_stack: 'excel_vba',
-				project: 'Sport Trader',
-				description:
-					'creating and handling excel application to manage football bets',
-				isData: '0',
-			},
-			{
-				id: 'BDX2',
-				year: '2014',
-				company: 'IBS Online',
-				id_parent: 'NULL',
-				main_stack: 'prestashop',
-				project: 'Ibs Online',
-				description:
-					'developping prestashop e-commerce website for selling  baby stuffs ',
-				isData: '0',
-			},
-			{
-				id: 'BDX3',
-				year: '2015',
-				company: 'L’Addition',
-				id_parent: 'NULL',
-				main_stack: 'titanium',
-				project: 'Caisse',
-				description:
-					'developping cash register application for restaurant and hotels',
-				isData: '0',
-			},
-			{
-				id: 'BDX4',
-				year: '2017',
-				company: 'L’Addition',
-				id_parent: 'NULL',
-				main_stack: 'arcplan',
-				project: 'Reporting',
-				description:
-					"creating BI dashboard and reports for l'Addition customers",
-				isData: '1',
-			},
-			{
-				id: 'BDX5',
-				year: '2017',
-				company: 'L’Addition',
-				id_parent: 'BDX4',
-				main_stack: 'arplan',
-				project: 'Reporting - Specific report',
-				description:
-					'creating specifis report for restaurant manager,financial directors and more',
-				isData: '1',
-			},
-			{
-				id: 'BDX6',
-				year: '2018',
-				company: 'L’Addition',
-				id_parent: 'BDX4',
-				main_stack: 'arcplan',
-				project: 'Reporting - TMA',
-				description: "maintinig and fixing L'Addition reporting",
-				isData: '1',
-			},
-			{
-				id: 'BDX7',
-				year: '2018',
-				company: 'L’Addition',
-				id_parent: 'BDX4',
-				main_stack: 'arcplan',
-				project: 'Reporting- Training',
-				description:
-					"training customers and sales agent to use l'Addition reporting",
-				isData: '1',
-			},
-			{
-				id: 'BDX8',
-				year: '2021',
-				company: 'L’Addition',
-				id_parent: 'NULL',
-				main_stack: 'react_js',
-				project: 'Reporting (new)',
-				description:
-					"moving l'Addition reporting from Arcplan software to a full js stack",
-				isData: '1',
-			},
-			{
-				id: 'BDX9',
-				year: '2021',
-				company: 'L’Addition',
-				id_parent: 'BDX8',
-				main_stack: 'javascript',
-				project: 'Reporting (new) - CubeJS',
-				description: 'handling reportings datas with CubeJs',
-				isData: '1',
-			},
-			{
-				id: 'BDX10',
-				year: '2021',
-				company: 'L’Addition',
-				id_parent: 'BDX8',
-				main_stack: 'javascript',
-				project: 'Reporting (new) - CubeJS ',
-				description: 'creating pre-aggregated reporting datas',
-				isData: '1',
-			},
-			{
-				id: 'BDX11',
-				year: '2021',
-				company: 'Side Project',
-				id_parent: 'NULL',
-				main_stack: 'nextjs',
-				project: 'Sorami Thaï',
-				description:
-					'creating and developing a website for my best friend restaurant ',
-				isData: '0',
-			},
-			{
-				id: 'BDX12',
-				year: '2021',
-				company: 'Side Project',
-				id_parent: 'NULL',
-				main_stack: 'wordpress',
-				project: 'Tizi-Electronic',
-				description: 'creating and developing a wordpress basic site',
-				isData: '0',
-			},
-			{
-				id: 'BDX13',
-				year: '2022',
-				company: 'Side project',
-				id_parent: 'NULL',
-				main_stack: 'nextjs_tailwind',
-				project: 'My Portfolio',
-				description:
-					'creating and developing the website that you are actually using.',
-				isData: '0',
-			},
-			{
-				id: 'BDX14',
-				year: '2022',
-				company: 'Certification',
-				id_parent: 'NULL',
-				main_stack: 'NULL',
-				project: 'AgilePM Certifcation',
-				description: 'learning and seek the AgilePM certification',
-				isData: '0',
-			},
-			{
-				id: 'BDX15',
-				year: '2022',
-				company: 'L’Addition',
-				id_parent: 'NULL',
-				main_stack: 'node_js',
-				project: 'Customer Area - KPI',
-				description:
-					"modelling, creating and handling L'Addition customers area KPI",
-				isData: '1',
-			},
-			{
-				id: 'BDX16',
-				year: '2022',
-				company: 'Side project',
-				id_parent: 'NULL',
-				main_stack: 'python',
-				project: 'Python',
-				description:
-					'learning the datas part of python and playing with some scripts',
-				isData: '1',
-			},
-			{
-				id: 'BDX17',
-				year: '2023',
-				company: "L'Adddition",
-				id_parent: 'BDX12',
-				main_stack: 'node_js',
-				project: 'Customer Area - KPI',
-				description:
-					'creating the strategy and scripts to refresh and format KPI datas',
-				isData: '1',
-			},
-		],
-	};
+	useEffect(() => {
+		const scrollableMain = document.getElementById('mobileContainer');
+		if (scrollableMain) {
+			scrollableMain.addEventListener('scroll', handleTableScroll, {
+				passive: true,
+			});
+		}
+		return () => {
+			const scrollableMain = document.getElementById('mobileContainer');
+			if (scrollableMain) {
+				scrollableMain.removeEventListener('scroll', handleTableScroll);
+			}
+		};
+	}, [actualPosition]);
 
+	useEffect(() => {
+		setNextDisplay(
+			actualPosition >= tableData.datas.length
+				? actualPosition
+				: actualPosition + 1
+		);
+		setPreviousDisplay(actualPosition === 0 ? 0 : actualPosition - 1);
+	}, []);
+	const handleTableScroll = e => {
+		setTimeout(() => {
+			const actualPosition = parseInt((e.target.scrollLeft / 280).toFixed());
+
+			const scrollDirection =
+				scrollTablePos <= e.target.scrollLeft ? 'next' : 'prev';
+
+			// if (scrollDirection === 'next') {
+			// 	setNextDisplay(
+			// 		nextDisplay >= tableData.datas.length ? nextDisplay : nextDisplay + 1
+			// 	);
+			// 	setPreviousDisplay(nextDisplay - 1);
+			// } else {
+			// 	setNextDisplay(nextDisplay === 1 ? 1 : nextDisplay - 1);
+			// 	setPreviousDisplay(previousDisplay <= 1 ? 0 : previousDisplay - 1);
+			// }
+			setActualPosition(actualPosition);
+			setScrollTablePos(e.target.scrollLeft);
+		}, 1500);
+	};
+	const linkClick = (e, dir) => {
+		e.preventDefault();
+		//handle manual scroll and set index with position
+		if (dir === 'next') {
+			ref.current?.scrollIntoView({ behavior: 'smooth' });
+			setNextDisplay(
+				nextDisplay >= tableData.datas.length ? nextDisplay : nextDisplay + 1
+			);
+			setPreviousDisplay(nextDisplay - 1);
+		} else {
+			refPrev.current?.scrollIntoView({ behavior: 'smooth' });
+			setNextDisplay(nextDisplay === 1 ? 1 : nextDisplay - 1);
+			setPreviousDisplay(previousDisplay <= 1 ? 0 : previousDisplay - 1);
+		}
+	};
+	const ref = useRef(null);
+	const refPrev = useRef(null);
+	const getMobileTables = (tData, tHeaders) => {
+		return tData.map((t, idx) => {
+			const tProps =
+				idx === nextDisplay
+					? { ref: ref }
+					: idx === previousDisplay
+					? { ref: refPrev }
+					: {};
+			return (
+				<React.Fragment>
+					<table
+						key={idx}
+						className="min-h-full min-w-[80%] border dark:border-lightOrange text-center snap-center"
+						id={idx}
+						{...tProps}>
+						<thead className="border border-green-500">
+							<tr>
+								<th className="border dark:border-lightOrange dark:bg-lightOrange dark:text-darkBlue">
+									field
+								</th>
+								<th className="border dark:border-lightOrange dark:bg-lightOrange dark:text-darkBlue">
+									value
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{tHeaders.map(h => {
+								return (
+									<tr className="border dark:border-lightOrange">
+										<td className="border dark:border-lightOrange">{h}</td>
+										<td
+											className={`border dark:border-lightOrange ${
+												t[h] === 'NULL' ? 'opacity-30' : ''
+											} `}>
+											{t[h]}
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</React.Fragment>
+			);
+		});
+	};
 	const getWorksDatas = d => {
 		return (
 			<table className="table-auto min-w-full text-left">
@@ -220,14 +332,6 @@ export default function Works({ isMobile }) {
 				</thead>
 				<tbody>
 					{d.datas.map(row => {
-						// 'id',
-						// 'year',
-						// 'company',
-						// 'id_parent',
-						// 'main_stack',
-						// 'project',
-						// 'description',
-						// 'is_data',
 						return (
 							<tr className="border text-center">
 								<td className="border  ">{row.id}</td>
@@ -242,7 +346,7 @@ export default function Works({ isMobile }) {
 								<td className="border ">{row.main_stack}</td>
 								<td className="border ">{row.project}</td>
 								<td className="border ">{row.description}</td>
-								<td className="border ">{row.isData}</td>
+								<td className="border ">{row.is_data}</td>
 							</tr>
 						);
 					})}
@@ -250,19 +354,48 @@ export default function Works({ isMobile }) {
 			</table>
 		);
 	};
-	// const variants = {
-	// 	stop: { y: [0, -20, 0], transition: { repeat: Infinity, repeatDelay: 5 } },
-	// };
+
 	return (
 		<div className="grow container-sm h-[100%] flex flex-col  border-0 border-t border-t-darkBlue dark:border-t-lightOrange">
 			{isMobile ? (
-				<div className="relative">
-					<span>Mobile works </span>
-				</div>
+				<React.Fragment>
+					<div className="relative min-w-full h-[5%]">
+						<span className={`relative  text-2xl mt-[12px] ml-5`}>Works</span>
+					</div>
+					<div className="relative flex flex-col justify-center overflow-hidden bg-none py-12">
+						<div
+							className=" relative  h-[50vh]  ml-4 flex overflow-scroll gap-3 scroll-smooth snap-mandatory snap-y"
+							id="mobileContainer">
+							{getMobileTables(tableData.datas, tableData.headers)}
+						</div>
+
+						<div className=" h-20 mt-10px flex items-center justify-evenly">
+							<a
+								disabled={nextDisplay === 1}
+								className={`border flex justify-center items-center dark:border-yellow-300 w-[100px] h-[35px] text-center ${
+									nextDisplay === 1 ? 'opacity-40' : ''
+								}`}
+								onClick={e => {
+									linkClick(e, 'prev');
+								}}>
+								Prev.
+							</a>
+							<a
+								className={`border flex justify-center items-center dark:border-yellow-300 w-[100px]  h-[35px] text-center ${
+									nextDisplay === tableData.datas.length ? 'opacity-40' : ''
+								}`}
+								onClick={e => {
+									linkClick(e, 'next');
+								}}>
+								Next
+							</a>
+						</div>
+					</div>
+				</React.Fragment>
 			) : (
 				<React.Fragment>
 					<div className="relative  h-[25%] flex align-center justify-around gap-10 items-center">
-						<div className=" lg:w-8/12 bg-gray-800 shadow-2xl rounded-lg h-[70%] overflow-hidden border border-slate-600">
+						<div className=" lg:w-[80%] bg-gray-800 shadow-2xl rounded-lg h-[70%] overflow-hidden border border-slate-600">
 							<div className="py-3 px-4 flex ">
 								<div className="rounded-full w-3 h-3 bg-red-500 mr-2"></div>
 								<div className="rounded-full w-3 h-3 bg-yellow-500 mr-2"></div>
@@ -282,14 +415,14 @@ export default function Works({ isMobile }) {
 							</div>
 						</div>
 						<button
-							className=" w-[70px] h-[40px] dark:bg-lightOrange dark:text-darkBlue"
+							className=" w-[100px] h-[50px] dark:bg-lightOrange dark:text-darkBlue rounded"
 							onClick={e => {
 								setRunQuery(!runQuery);
 							}}>
-							RUN
+							{runQuery ? 'Clear' : 'Run'}
 						</button>
 					</div>
-					<div className="relative h-[85%] flex align-center items-center justify-center">
+					<div className="relative h-[85%] flex align-center items-center justify-center ">
 						<motion.div
 							className="w-[90%] h-[80%] text-[13px]"
 							variants={variantsBis}

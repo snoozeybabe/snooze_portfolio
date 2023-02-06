@@ -217,7 +217,7 @@ export default function Skills({ isMobile }) {
 						setOpenDrawer(!openDrawer);
 					}}>
 					<div
-						className=" h-[20%] w-[100%] p-[15px] items-center"
+						className=" h-[20%] w-[100%] p-[15px] flex items-center justify-center "
 						onClick={e => {
 							setOpenDrawer(!openDrawer);
 						}}>
