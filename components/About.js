@@ -90,7 +90,7 @@ export default function About({ isMobile, position }) {
 					{isMobile ? (
 						<ul
 							className="relative h-[95%] mt-0border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
-														before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5]
+														before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5] before:bg-darkBlue
 													  dark:before:bg-lightOrange  ">
 							{getMobileRows()}
 						</ul>

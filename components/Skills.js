@@ -141,7 +141,7 @@ export default function Skills({ isMobile }) {
 				<React.Fragment>
 					{isMobile ? (
 						<div
-							className="max-w-[130px] h-[120px] relative border  border-lightOrange  flex flex-row items-center"
+							className="max-w-[130px] h-[120px] relative border border-darkYellow  dark:border-lightOrange   flex flex-row items-center"
 							onClick={e => {
 								setSelectedSkill({
 									title: ic.title,
@@ -190,19 +190,19 @@ export default function Skills({ isMobile }) {
 				} `}>
 				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
 					<span className="text-3xl mt-[2px] ml-[12px]">I'm daily using</span>
-					<div className="scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
+					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						{getDailyCards(dailyIcons)}
 					</div>
 				</div>
 				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
 					<span className="text-3xl mt-[2px] ml-[12px]">...and this</span>
-					<div className="scollableList w-[95%] flex flex-nowrap gap-4  overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
+					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4  overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						{getDailyCards(andIcons)}
 					</div>
 				</div>
 				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
 					<span className="text-3xl mt-[2px] ml-[12px]">...and sometimes</span>
-					<div className="scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
+					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						{getDailyCards(someTimeIcons)}
 					</div>
 				</div>

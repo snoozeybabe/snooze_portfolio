@@ -287,15 +287,15 @@ export default function Works({ isMobile }) {
 				<React.Fragment>
 					<table
 						key={idx}
-						className="min-h-full min-w-[80%] border dark:border-lightOrange text-center snap-center"
+						className="min-h-full min-w-[80%] border border-darkYellow dark:border-lightOrange text-center snap-center"
 						id={idx}
 						{...tProps}>
-						<thead className="border border-green-500">
+						<thead className="">
 							<tr>
-								<th className="border dark:border-lightOrange dark:bg-lightOrange dark:text-darkBlue">
+								<th className="border  bg-darkYellow text-ligthBlue border-darkYellow dark:bg-lightOrange dark:text-darkBlue">
 									field
 								</th>
-								<th className="border dark:border-lightOrange dark:bg-lightOrange dark:text-darkBlue">
+								<th className="border  bg-darkYellow text-ligthBlue border-darkYellow dark:bg-lightOrange dark:text-darkBlue">
 									value
 								</th>
 							</tr>
@@ -303,10 +303,10 @@ export default function Works({ isMobile }) {
 						<tbody>
 							{tHeaders.map(h => {
 								return (
-									<tr className="border dark:border-lightOrange">
-										<td className="border dark:border-lightOrange">{h}</td>
+									<tr className="border border-darkYellow">
+										<td className="border border-darkYellow">{h}</td>
 										<td
-											className={`border dark:border-lightOrange ${
+											className={`border border-darkYellow ${
 												t[h] === 'NULL' ? 'opacity-30' : ''
 											} `}>
 											{t[h]}
@@ -359,8 +359,8 @@ export default function Works({ isMobile }) {
 		<div className="grow container-sm h-[100%] flex flex-col  border-0 border-t border-t-darkBlue dark:border-t-lightOrange">
 			{isMobile ? (
 				<React.Fragment>
-					<div className="relative min-w-full h-[5%]">
-						<span className={`relative  text-2xl mt-[12px] ml-5`}>Works</span>
+					<div className="relative min-w-full h-[5%] pt-[10px]">
+						<span className={`relative  text-3xl mt-[12px] ml-5`}>Works</span>
 					</div>
 					<div className="relative flex flex-col justify-center overflow-hidden bg-none py-12">
 						<div
@@ -372,7 +372,7 @@ export default function Works({ isMobile }) {
 						<div className=" h-20 mt-10px flex items-center justify-evenly">
 							<a
 								disabled={nextDisplay === 1}
-								className={`border flex justify-center items-center dark:border-yellow-300 w-[100px] h-[35px] text-center ${
+								className={`border flex border-darkYellow justify-center items-center dark:border-yellow-300 w-[100px] h-[35px] text-center ${
 									nextDisplay === 1 ? 'opacity-40' : ''
 								}`}
 								onClick={e => {
@@ -381,7 +381,7 @@ export default function Works({ isMobile }) {
 								Prev.
 							</a>
 							<a
-								className={`border flex justify-center items-center dark:border-yellow-300 w-[100px]  h-[35px] text-center ${
+								className={`border border-darkYellow  flex justify-center items-center dark:border-yellow-300 w-[100px]  h-[35px] text-center ${
 									nextDisplay === tableData.datas.length ? 'opacity-40' : ''
 								}`}
 								onClick={e => {
