@@ -11,15 +11,15 @@ module.exports = {
 		typography: theme => ({}),
 		extend: {
 			colors: {
-				darkBlue: '#142850',
-				lightOrange: '#ff8367',
+				darkBlue: '#030523',
+				lightOrange: '#FF8C29',
 				lightYellow: '#F6F54D',
 				darkYellow: '#FEDD00',
-				ligthBlue: '#ADC1EA',
+				ligthBlue: '#2888B8',
 				lightGrey: 'rgba(170, 170, 170, 0.17)',
 			},
 			fontFamily: {
-				sans: ['Futura', ...defaultTheme.fontFamily.sans],
+				sans: ['Montserrat', 'Futura', ...defaultTheme.fontFamily.sans],
 			},
 			lineHeight: {
 				small: '95%',

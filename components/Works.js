@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useState, useRef, useEffect } from 'react';
-import { calcLength, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -201,7 +201,7 @@ const tableData = {
 };
 
 export default function Works({ isMobile }) {
-	const [runQuery, setRunQuery] = useState(false);
+	const [runQuery, setRunQuery] = useState(true);
 	const [nextDisplay, setNextDisplay] = useState(1);
 	const [previousDisplay, setPreviousDisplay] = useState(0);
 	const [scrollTablePos, setScrollTablePos] = useState(0);
@@ -287,15 +287,15 @@ export default function Works({ isMobile }) {
 				<React.Fragment>
 					<table
 						key={idx}
-						className="min-h-full min-w-[80%] border border-darkYellow dark:border-lightOrange text-center snap-center"
+						className="min-h-full min-w-[80%] border border-darkBlue dark:border-ligthBlue text-center snap-center"
 						id={idx}
 						{...tProps}>
 						<thead className="">
 							<tr>
-								<th className="border  bg-darkYellow text-ligthBlue border-darkYellow dark:bg-lightOrange dark:text-darkBlue">
+								<th className="border  bg-darkYellow text-ligthBlue border-darkBlue dark:bg-ligthBlue dark:text-darkBlue">
 									field
 								</th>
-								<th className="border  bg-darkYellow text-ligthBlue border-darkYellow dark:bg-lightOrange dark:text-darkBlue">
+								<th className="border  bg-darkYellow text-ligthBlue border-darkBlue dark:bg-ligthBlue dark:text-darkBlue">
 									value
 								</th>
 							</tr>
@@ -303,10 +303,12 @@ export default function Works({ isMobile }) {
 						<tbody>
 							{tHeaders.map(h => {
 								return (
-									<tr className="border border-darkYellow">
-										<td className="border border-darkYellow">{h}</td>
+									<tr className="borderborder-darkBlue dark:border-ligthBlue ">
+										<td className="border border-darkBlue dark:border-ligthBlue ">
+											{h}
+										</td>
 										<td
-											className={`border border-darkYellow ${
+											className={`border border-darkBlue dark:border-ligthBlue  ${
 												t[h] === 'NULL' ? 'opacity-30' : ''
 											} `}>
 											{t[h]}
@@ -356,7 +358,7 @@ export default function Works({ isMobile }) {
 	};
 
 	return (
-		<div className="grow container-sm h-[100%] flex flex-col  border-0 border-t border-t-darkBlue dark:border-t-lightOrange">
+		<div className="grow container-sm h-[100%] flex flex-col  ">
 			{isMobile ? (
 				<React.Fragment>
 					<div className="relative min-w-full h-[5%] pt-[10px]">
@@ -372,7 +374,7 @@ export default function Works({ isMobile }) {
 						<div className=" h-20 mt-10px flex items-center justify-evenly">
 							<a
 								disabled={nextDisplay === 1}
-								className={`border flex border-darkYellow justify-center items-center dark:border-yellow-300 w-[100px] h-[35px] text-center ${
+								className={`border flex border-darkYellow justify-center items-center dark:border-ligthBlue w-[100px] h-[35px] text-center ${
 									nextDisplay === 1 ? 'opacity-40' : ''
 								}`}
 								onClick={e => {
@@ -381,7 +383,7 @@ export default function Works({ isMobile }) {
 								Prev.
 							</a>
 							<a
-								className={`border border-darkYellow  flex justify-center items-center dark:border-yellow-300 w-[100px]  h-[35px] text-center ${
+								className={`border border-darkBlue  flex justify-center items-center dark:border-ligthBlue  w-[100px]  h-[35px] text-center ${
 									nextDisplay === tableData.datas.length ? 'opacity-40' : ''
 								}`}
 								onClick={e => {

@@ -17,6 +17,13 @@ import {
 	ReduxSvg,
 	CloseIconSvg,
 } from '../assets/svg/SkillsSvg';
+
+import reportingComptability from '../assets/img/reporting_v_compt.png';
+import reportingDashboard from '../assets/img/reporting_dashboard.png';
+import reportingProduct from '../assets/img/reporting_v_product.png';
+import reportingArcplan from '../assets/img/reporting_arcplan.png';
+import reactSorami from '../assets/img/react_sorami.jpeg';
+import Image from 'next/image';
 export default function Skills({ isMobile }) {
 	const [openDrawer, setOpenDrawer] = useState(false);
 
@@ -93,6 +100,42 @@ export default function Skills({ isMobile }) {
 			description: 'Everthing need to be build and controlled',
 			url: 'https://about.gitlab.com/',
 		},
+		{
+			icon: <ExcelSvg />,
+			title: 'Excel',
+			description: `The grand father of data analysis tools,`,
+			url: 'https://www.microsoft.com/',
+		},
+		{
+			icon: <PythonSvg />,
+			title: 'Python',
+			description: 'Fetching, formatting, scrapping,displaying datas and more',
+			url: 'https://www.python.org',
+		},
+		{
+			icon: <TailwindSvg />,
+			title: 'Tailwind',
+			description: 'The power of CSS easier and faster',
+			url: 'https://tailwindcss.com',
+		},
+		{
+			icon: <NextJsSvg />,
+			title: 'NextJs',
+			description: 'Sometimes a side projects pops from nowhere',
+			url: 'https://nextjs.org/',
+		},
+		{
+			icon: <FigmaSvg />,
+			title: 'Figma',
+			description: 'Trying to build something beautiful like this portfolio',
+			figma: 'https://www.figma.com/',
+		},
+		{
+			icon: <ReduxSvg />,
+			title: 'Redux',
+			description: 'Once uppon a time it was an amazing tool',
+			url: 'https://redux.js.org',
+		},
 	];
 
 	const andIcons = [
@@ -115,33 +158,33 @@ export default function Skills({ isMobile }) {
 			url: 'https://tailwindcss.com',
 		},
 	];
-	const someTimeIcons = [
-		{
-			icon: <NextJsSvg />,
-			title: 'NextJs',
-			description: 'Sometimes a side projects pops from nowhere',
-			url: 'https://nextjs.org/',
-		},
-		{
-			icon: <FigmaSvg />,
-			title: 'Figma',
-			description: 'Trying to build something beautiful like this portfolio',
-			figma: 'https://www.figma.com/',
-		},
-		{
-			icon: <ReduxSvg />,
-			title: 'Redux',
-			description: 'Once uppon a time it was an amazing tool',
-			url: 'https://redux.js.org',
-		},
-	];
+	// const someTimeIcons = [
+	// 	{
+	// 		icon: <NextJsSvg />,
+	// 		title: 'NextJs',
+	// 		description: 'Sometimes a side projects pops from nowhere',
+	// 		url: 'https://nextjs.org/',
+	// 	},
+	// 	{
+	// 		icon: <FigmaSvg />,
+	// 		title: 'Figma',
+	// 		description: 'Trying to build something beautiful like this portfolio',
+	// 		figma: 'https://www.figma.com/',
+	// 	},
+	// 	{
+	// 		icon: <ReduxSvg />,
+	// 		title: 'Redux',
+	// 		description: 'Once uppon a time it was an amazing tool',
+	// 		url: 'https://redux.js.org',
+	// 	},
+	// ];
 	const getDailyCards = cardDatas => {
 		return cardDatas.map(ic => {
 			return (
 				<React.Fragment>
 					{isMobile ? (
 						<div
-							className="max-w-[130px] h-[120px] relative border border-darkYellow  dark:border-lightOrange   flex flex-row items-center"
+							className="max-w-[130px] h-[120px] relative border border-darkBlue dark:border-ligthBlue   flex flex-row items-center"
 							onClick={e => {
 								setSelectedSkill({
 									title: ic.title,
@@ -157,18 +200,23 @@ export default function Skills({ isMobile }) {
 						</div>
 					) : (
 						<div
-							className="group max-w-[130px] h-[120px] relative border  border-lightOrange  flex flex-row items-center  hover:min-w-[300px] transition-all duration-500 delay-0 ease-in-out hover:bg-lightYellow"
+							className="group cursor-pointer max-w-[140px] h-[140px] items-center relative border  border-darkBlue dark:border-ligthBlue  flex flex-row  "
 							onClick={e => {}}>
 							{' '}
-							<div className="w-[80px] h-[80px] mx-[24px] my-[20px]">
-								{ic.icon}
-							</div>
+							<a href={ic.url} target="_blank">
+								<div className=" relative flex flex-col items-center">
+									<div className="w-[80px] h-[80px] mx-[24px] my-[5px] ">
+										{ic.icon}
+									</div>
+									<span>{`<${ic.title}/>`}</span>
+								</div>
+							</a>
 							<div className="top-[90%] transition-all duration-700 delay-1 ease-in-out opacity-0 duration-10 p-[20px] relative px-[9px] w-[300px] flex flex-col justify-center h-[100px] overflow-hidden group-hover:top-0 group-hover:opacity-100 group-hover:duration-1000 group-hover:text-darkBlue">
 								<a href={ic.url} target="_blank">
 									<span className="text-transparent group-hover:text-darkBlue text-[16px]">
 										{' '}
-										{`<${ic.title}/>`}
 									</span>
+									{`<${ic.title}/>`}
 								</a>
 								<p className="text-transparent text-[12px] group-hover:text-darkBlue">
 									{' '}
@@ -185,16 +233,42 @@ export default function Skills({ isMobile }) {
 	return (
 		<React.Fragment>
 			<div
-				className={`grow container-sm h-[100%] flex flex-col justify-evenly  border-t border-t-darkBlue dark:border-t-lightOrange ${
+				className={`grow container-sm h-[100%] flex flex-col justify-evenly  ${
 					openDrawer ? 'opacity-50' : ''
 				} `}>
-				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
-					<span className="text-3xl mt-[2px] ml-[12px]">I'm daily using</span>
-					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
+				<div className="h-1/2 flex flex-col justify-between mt-2 bg-transparent items-center ">
+					<span className="text-3xl mt-[2px] ml-[12px] text-center">
+						I'm daily using
+					</span>
+					<div className="dark:scollableList w-[100%]  overflow-scroll flex sm:flex-row sm:flex-wrap sm:justify-center gap-4  scrollbar-hide ml-[12px] bg-transparent  sm:overflow-y-hidden">
 						{getDailyCards(dailyIcons)}
 					</div>
 				</div>
-				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
+				<div className="h-1/2 flex flex-col justify-evenly bg-transparent ">
+					<span className="text-3xl mt-[2px] ml-[12px] text-center">
+						To Make This
+					</span>
+					<div className=" dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
+						<div className="relative flex gap-6 flex-row">
+							<div className=" relativeborder border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
+								<Image src={reportingDashboard} fill objectFit="contain" />
+							</div>
+							<div className=" relativeborder border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
+								<Image src={reportingProduct} fill objectFit="contain" />
+							</div>
+							<div className=" relative border border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
+								<Image src={reportingComptability} fill objectFit="contain" />
+							</div>
+							<div className="relative border border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
+								<Image src={reportingArcplan} fill objectFit="contain" />
+							</div>
+							<div className="relative border border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
+								<Image src={reactSorami} fill objectFit="contain" />
+							</div>
+						</div>
+					</div>
+				</div>
+				{/*	<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
 					<span className="text-3xl mt-[2px] ml-[12px]">...and this</span>
 					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4  overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						{getDailyCards(andIcons)}
@@ -205,7 +279,7 @@ export default function Skills({ isMobile }) {
 					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						{getDailyCards(someTimeIcons)}
 					</div>
-				</div>
+			</div>*/}
 			</div>
 			<motion.div
 				variants={variants}

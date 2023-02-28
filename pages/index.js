@@ -73,7 +73,7 @@ export default function Home() {
 		<Layout>
 			<div
 				id="mainContainer"
-				className="h-[100vh] w-[100%] bg-ligthBlue text-darkYellow dark:bg-darkBlue dark:text-lightYellow overflow-y-auto snap-mandatory snap-y">
+				className="h-[100vh] w-[100%] bg-ligthBlue text-darkBlue dark:bg-darkBlue dark:text-ligthBlue overflow-y-auto snap-mandatory snap-y">
 				<div className="h-[100%] relative overflow-y-auto snap-center">
 					<Homepage />
 				</div>

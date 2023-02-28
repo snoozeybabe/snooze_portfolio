@@ -6,11 +6,20 @@ import ArrowDown from '../assets/svg/ArrowDown';
 import { useTheme } from 'next-themes';
 import { ROUTES } from '../utils/constant';
 import TwitterSvg from '../assets/svg/TwitterSvg.js';
+import { motion } from 'framer-motion';
 const TestFooter = ({ nextLabel, actualRoute }) => {
 	const { theme, setTheme } = useTheme();
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
-	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
+	const fillColor = theme === 'light' ? '#030523' : '#2888B8';
+	const fillSvg = '#FF8C29';
+
+	const variantsBis = {
+		initial: { y: 10, opacity: 0 },
+		animate: { y: 0, opacity: 1 },
+		exit: { y: -10, opacity: 0 },
+		transition: { delay: 1, duration: 0.2, type: 'tween' },
+	};
 
 	const fadeInUp = [
 		{ opacity: '0', transform: 'translate(0, 4px)' },
@@ -33,7 +42,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 	}, [nextLabel]);
 	return (
 		<React.Fragment>
-			<div className="m-0 h-16 bg-ligthBlue  border-0 border-t  border-t-darkBlue  text-darkBlue dark:bg-darkBlue dark:text-lightOrange text-center dark:border-t-lightOrange">
+			<div className="m-0 h-16 bg-ligthBlue   text-darkBlue dark:bg-darkBlue dark:text-lightOrange text-center">
 				<Head>
 					<link rel="preconnect" href="https://fonts.googleapis.com" />
 					<link
@@ -42,22 +51,27 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 						crossOrigin="true"
 					/>
 				</Head>
-				<div className="m-0  h-16 flex flex-row ml-2 mr-2 text-darkBlue dark:text-lightOrange">
-					<div className="w-[10%] flex flex-row items-center">
-						<a
-							href="https://www.linkedin.com/in/arezkidrir/"
-							target="_blank"
-							rel="noopener noreferrer">
-							<LinkedinSvg fillColor={fillColor} />
-						</a>
-						<a
-							href="https://twitter.com/DrirArezki"
-							target="_blank"
-							rel="noopener noreferrer">
-							<TwitterSvg fillColor={fillColor} />
-						</a>
-					</div>
-
+				<div className="m-0  h-16 flex flex-row ml-2 mr-2 text-darkBlue dark:text-ligthBlue">
+					<motion.div
+						variants={variantsBis}
+						animate={nextLabel !== null ? 'animate' : 'exit'}>
+						{nextLabel !== null && (
+							<div className="w-[10%] flex flex-row items-center">
+								<a
+									href="https://www.linkedin.com/in/arezkidrir/"
+									target="_blank"
+									rel="noopener noreferrer">
+									<LinkedinSvg fillColor={fillSvg} />
+								</a>
+								<a
+									href="https://twitter.com/DrirArezki"
+									target="_blank"
+									rel="noopener noreferrer">
+									<TwitterSvg fillColor={fillSvg} />
+								</a>
+							</div>
+						)}
+					</motion.div>
 					<div
 						id="btnFooter"
 						className="w-auto flex flex-col justify-around m-auto items-center pl-[115px]">

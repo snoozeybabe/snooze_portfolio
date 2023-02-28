@@ -53,23 +53,18 @@ export default function About({ isMobile, position }) {
 			return (
 				<li
 					key={idx}
-					className={`py-[1em] px-0 after:content-[''] after:block after:h-0 after:clear-both after:invisible relative w-[500px] h-[160px] ${
-						isOdd === 0
-							? 'float-left sm:text-right sm:left-[45%] md:left-[54%] xl:float-left xl:text-right xl:left-[55%]'
-							: 'float-right sm:right-[55%]  md:right-[29%] xl:right-[55%] '
-					}`}>
+					className={`py-[1em] px-0 after:content-[''] after:block after:h-0 after:clear-both after:invisible relative w-[80%] h-[160px]
+					`}>
 					<div
-						id={isOdd ? 'img_profil' : 'description_profil'}
-						className={`relative  py-[6px] px-[10px] pl-[20px] rounded-[5px] font-medium text-left  h-[100%] ml-[10px]
-														md:w-[65%]
+						id="img_profil"
+						className={`relative  py-[6px] px-[10px] pl-[20px] rounded-[5px] font-medium text-left w-[auto] h-[100%] ml-[10px]
+														flex flex-col justify-around 
 														xl:w-auto
-														after:content-[''] after:absolute ${
-															isOdd === 0
-																? 'after:left-[-5%]'
-																: 'after:left-[102%]'
-														} after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px] after:z-[5] after:border-[1px] after:border-solid after:border-darkBlue dark:after:border-lightOrange after:pointer-events-none after:rotate-90`}>
-						<span className="text-2xl">{r.title}</span> <br />
-						<span className="text-[14px]">{r.description} </span>
+														after:content-[''] after:absolute after:left-[-1%] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px] after:z-[5] after:border-[1px] after:border-solid after:border-darkBlue 
+														before:content[''] before:absolute before:w-[0] before:left-[12px] before:h-[80%] before:z-[5] before:border before:border-solid  before:border-darkBlue dark:before:border-lightOrange
+														dark:after:border-lightOrange after:pointer-events-none after:rotate-90`}>
+						<span className="text-2xl pl-1">{r.title}</span>
+						<span className="text-[16px] pl-1">{r.description} </span>
 					</div>
 				</li>
 			);
@@ -77,19 +72,19 @@ export default function About({ isMobile, position }) {
 	};
 	return (
 		<div
-			className="grow container-xl h-[100%] overflow-hidden flex  flex-col flex-start border-0 border-t border-t-darkBlue dark:border-t-lightOrange overflow-y-hidden pt-[10px]"
+			className="grow container-xl h-[100%] overflow-hidden flex  flex-col flex-start overflow-y-hidden pt-[10px]"
 			id="about">
 			<span
 				className={`relative h-[5%] text-${
 					isMobile ? '2' : '3'
-				}xl mt-[2px] ml-[12px]`}>
+				}xl mt-[2px] ml-[12px] text-center`}>
 				About me...
 			</span>
 			{position > 0.2 ? (
 				<React.Fragment>
 					{isMobile ? (
 						<ul
-							className="relative h-[95%] mt-0border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
+							className="relative h-[95%] mt-0 border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
 														before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5] before:bg-darkBlue
 													  dark:before:bg-lightOrange  ">
 							{getMobileRows()}
@@ -97,10 +92,9 @@ export default function About({ isMobile, position }) {
 					) : (
 						<ul
 							id={isMobile ? 'animate_from_top' : 'list_about'}
-							className="relative w-[660px] my-0 mx-auto list-none mt-[-15px]
-											  before:absolute  sm:h-[100vh]
-												before:left-[50%] before:top-0 before:block before:w-[6px] before:h-[100%] before:ml-[-3px]  dark:before:bg-lightOrange before:content[' '] before:z-[5] 
-												2xl:h-[100%] ">
+							className="relative h-[95%] mt-0 border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
+							before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5] before:bg-darkBlue
+							dark:before:bg-lightOrange ">
 							{getDesktopRows()}
 						</ul>
 					)}

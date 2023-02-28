@@ -7,7 +7,7 @@ export default function Contact() {
 	const { theme, setTheme } = useTheme();
 	const fillColor = theme === 'light' ? '#142850' : '#FEDD00';
 	return (
-		<div className="grow container-sm h-[100%] flex  border-0 border-t border-t-darkBlue dark:border-t-lightOrange">
+		<div className="grow container-sm h-[100%] flex ">
 			{' '}
 			<div className="m-auto h-2/3 w-3/4 flex flex-col justify-evenly items-center">
 				<span className="font-style-normal tracking-wider font-bold font-sans text-[3em] leading-none text-center">

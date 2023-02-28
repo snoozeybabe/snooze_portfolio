@@ -32,7 +32,7 @@ const TestHeader = ({ previousLabel }) => {
 	}, [previousLabel]);
 
 	return (
-		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-darkBlue dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-lightOrange">
+		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-lightOrange dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-ligthBlue">
 			<Head>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
 				<link
@@ -41,7 +41,7 @@ const TestHeader = ({ previousLabel }) => {
 					crossOrigin="true"
 				/>
 			</Head>
-			<div className="m-0 h-16 flex flex-row  text-darkBlue dark:text-lightOrange">
+			<div className="m-0 h-16 flex flex-row  text-darkBlue dark:text-ligthBlue">
 				<div className="w-[10%]"></div>
 				<div className="w-[70%] flex flex-row justify-center">
 					<Link href="#about" scroll={true} className="w-5">

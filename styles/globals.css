@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Kanit:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Futura,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:Montserrat,Futura,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -26,14 +29,14 @@ a {
 @layer components {
   .textStrokeTransparentDark {
     color: transparent;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #ff8367;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #2888B8;
   }
 
   .textStrokeTransparentLight {
     color: transparent;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: #142850;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #030523;
   }
 
 
@@ -115,8 +118,8 @@ a {
   background-image: 
 	
     /* Shadows */ 
-    linear-gradient(to right, #142850, #142850),
-    linear-gradient(to right, #142850, #142850),
+    linear-gradient(to right, #030523, #030523),
+    linear-gradient(to right, #030523, #030523),
   
 /* Shadow covers */ 
     linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)),
@@ -124,7 +127,7 @@ a {
 
   background-position: left center, right center, left center, right center;
 	background-repeat: no-repeat;
-	background-color: #142850;
+	background-color: #030523;
 	background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
 	
 	/* Opera doesn't support this in the shorthand */

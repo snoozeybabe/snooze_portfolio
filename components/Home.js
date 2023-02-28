@@ -21,10 +21,7 @@ export default function Home({ sHeight }) {
 											lg:text-[4em] lg:ml-[5vw]
 										  md:ml-[12px]">
 					Hi there,
-					<br /> I’m{' '}
-					<span className="textStrokeTransparentLight dark:textStrokeTransparentDark">
-						Drir Arezki
-					</span>
+					<br /> I’m <span>Drir Arezki</span>
 					.
 					<br /> 32 yo, <br />
 					Bordeaux
@@ -50,7 +47,7 @@ export default function Home({ sHeight }) {
 					/>
 				</div>
 				<div
-					className="border dark:border-lightYellow w-[30vh] h-[30vh] left-auto top-auto
+					className="border border-darkBlue dark:border-ligthBlue w-[30vh] h-[30vh] left-auto top-auto
 												sm:w-[35vh] sm:h-[35vh]
 												lg:w-[40vh] lg:h-[40vh] lg:mt-[40px] lg:ml-[40px]"></div>
 			</div>

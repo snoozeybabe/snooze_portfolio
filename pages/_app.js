@@ -40,6 +40,10 @@ function MyApp({ Component, pageProps }) {
 				<Head>
 					<title>Arezki Drir</title>
 					<link
+						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+						rel="stylesheet"
+					/>
+					<link
 						rel="apple-touch-icon"
 						sizes="180x180"
 						href="/apple-touch-icon.png"
