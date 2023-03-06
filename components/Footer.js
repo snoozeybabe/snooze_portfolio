@@ -17,7 +17,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 	const variantsBis = {
 		initial: { y: 10, opacity: 0 },
 		animate: { y: 0, opacity: 1 },
-		exit: { y: -10, opacity: 0 },
+		exit: { y: 20, opacity: 0 },
 		transition: { delay: 1, duration: 0.2, type: 'tween' },
 	};
 
@@ -55,22 +55,20 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 					<motion.div
 						variants={variantsBis}
 						animate={nextLabel !== null ? 'animate' : 'exit'}>
-						{nextLabel !== null && (
-							<div className="w-[10%] flex flex-row items-center">
-								<a
-									href="https://www.linkedin.com/in/arezkidrir/"
-									target="_blank"
-									rel="noopener noreferrer">
-									<LinkedinSvg fillColor={fillSvg} />
-								</a>
-								<a
-									href="https://twitter.com/DrirArezki"
-									target="_blank"
-									rel="noopener noreferrer">
-									<TwitterSvg fillColor={fillSvg} />
-								</a>
-							</div>
-						)}
+						<div className="w-[10%] flex flex-row items-center">
+							<a
+								href="https://www.linkedin.com/in/arezkidrir/"
+								target="_blank"
+								rel="noopener noreferrer">
+								<LinkedinSvg fillColor={fillSvg} />
+							</a>
+							<a
+								href="https://twitter.com/DrirArezki"
+								target="_blank"
+								rel="noopener noreferrer">
+								<TwitterSvg fillColor={fillSvg} />
+							</a>
+						</div>
 					</motion.div>
 					<div
 						id="btnFooter"
@@ -95,7 +93,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 									setPrevIdx(nextIndex === 1 ? 0 : prevIndex + 1);
 									setNextIdx(nextIndex + 1);
 								}}>
-								{nextLabel !== null ? nextLabel : ''}
+								{nextLabel}
 							</button>
 						</Link>
 						{nextLabel !== null ? <ArrowDown fillColor={fillColor} /> : null}

@@ -5,22 +5,22 @@ export default function About({ isMobile, position }) {
 	console.log('POSITION', position);
 	const aboutDatas = [
 		{
-			title: '2015 - Hybrid mobile development',
+			title: '2015 - Hybrid mobile development 📱',
 			description:
 				'My first work was as a junior mobile developer at L’Addtion in Bordeaux. Hybrid developement was an amazing discovery for me.One code for every device.',
 		},
 		{
-			title: '2017 - Business intelligence',
+			title: '2017 - Business intelligence 📊',
 			description:
 				'But i always loved data, all the aspects of datas, that’s why i became the chief of reporting at L’Addition. That was my first BI experience.My job was to re-create a brand new reporting for our customers.',
 		},
 		{
-			title: '2019 - Next level BI',
+			title: '2019 - Next level BI ⏭️',
 			description:
 				'Started to move to another type of BI. I left the software to develop new dashboards and report with modern web technologies.',
 		},
 		{
-			title: 'Now',
+			title: 'Now 🥳',
 			description:
 				'Still in love with datas i’m trying to level up my skills about data analysis and data science by learning new tools and languages like Python. On my free time i like testing and playing with new frameworks and tools.',
 		},
@@ -33,7 +33,7 @@ export default function About({ isMobile, position }) {
 					key={idx}
 					id="img_profil"
 					className="relative ml-[55px] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px]  after:ml-[-42px] after:z-[5] after:content-[''] after:absolute 
-					after:border-[1px] after:border-solid after:border-darkBlue dark:after:border-lightOrange after:pointer-events-none after:rotate-90">
+					after:border-[1px] after:border-solid after:border-darkBlue dark:after:border-ligthBlue  after:pointer-events-none after:rotate-90">
 					<div className="relative flex flex-col md:gap-1">
 						<span className="text-[2xl] after:mt-[5px] md:text-3xl  after:block dark:after:bg-lightOrange after:w-[35px] after:h-[2px] after:content-['']">
 							{rm.title}
@@ -56,14 +56,14 @@ export default function About({ isMobile, position }) {
 					className={`py-[1em] px-0 after:content-[''] after:block after:h-0 after:clear-both after:invisible relative w-[80%] h-[160px]
 					`}>
 					<div
-						id="img_profil"
+						id="li_about"
 						className={`relative  py-[6px] px-[10px] pl-[20px] rounded-[5px] font-medium text-left w-[auto] h-[100%] ml-[10px]
-														flex flex-col justify-around 
+														flex flex-col justify-evenly 
 														xl:w-auto
 														after:content-[''] after:absolute after:left-[-1%] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px] after:z-[5] after:border-[1px] after:border-solid after:border-darkBlue 
-														before:content[''] before:absolute before:w-[0] before:left-[12px] before:h-[80%] before:z-[5] before:border before:border-solid  before:border-darkBlue dark:before:border-lightOrange
-														dark:after:border-lightOrange after:pointer-events-none after:rotate-90`}>
-						<span className="text-2xl pl-1">{r.title}</span>
+														before:content[''] before:absolute before:w-[0] before:left-[12px] before:h-[80%] before:z-[5] before:border before:border-solid  before:border-darkBlue dark:before:border-ligthBlue 
+														dark:after:border-ligthBlue after:pointer-events-none after:rotate-90`}>
+						<span className="text-3xl pl-1">{r.title}</span>
 						<span className="text-[16px] pl-1">{r.description} </span>
 					</div>
 				</li>
@@ -77,8 +77,8 @@ export default function About({ isMobile, position }) {
 			<span
 				className={`relative h-[5%] text-${
 					isMobile ? '2' : '3'
-				}xl mt-[2px] ml-[12px] text-center`}>
-				About me...
+				}xl mt-[2px] ml-[12px] text-center font-bold`}>
+				About Me
 			</span>
 			{position > 0.2 ? (
 				<React.Fragment>
@@ -86,15 +86,15 @@ export default function About({ isMobile, position }) {
 						<ul
 							className="relative h-[95%] mt-0 border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
 														before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5] before:bg-darkBlue
-													  dark:before:bg-lightOrange  ">
+													  dark:before:bg-ligthBlue  ">
 							{getMobileRows()}
 						</ul>
 					) : (
 						<ul
-							id={isMobile ? 'animate_from_top' : 'list_about'}
+							id={isMobile ? 'animate_from_top' : 'li_about'}
 							className="relative h-[95%] mt-0 border-lightOrange w-[100%] py-2 px-2 list-none flex flex-col justify-between 
 							before:w-[5px]  before:h-[98%] before:absolute before:block before:ml-[-10px] before:content[''] before:z-[5] before:bg-darkBlue
-							dark:before:bg-lightOrange ">
+							dark:before:bg-ligthBlue  ">
 							{getDesktopRows()}
 						</ul>
 					)}

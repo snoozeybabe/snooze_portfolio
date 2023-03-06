@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 
 export default function Contact() {
 	const { theme, setTheme } = useTheme();
-	const fillColor = theme === 'light' ? '#142850' : '#FEDD00';
+	const fillColor = '#FF8C29';
 	return (
 		<div className="grow container-sm h-[100%] flex ">
 			{' '}
@@ -15,7 +15,7 @@ export default function Contact() {
 				</span>
 
 				<a
-					className=" border  border-darkYellow  dark:border-lightOrange w-[70%] h-[20%] text-center  sm:text-[2em] flex justify-center items-center"
+					className="cursor-pointer  bg-lightOrange  dark:border-lightOrange w-[70%] h-[20%] text-center dark:text-darkBlue  sm:text-[2em] flex justify-center items-center"
 					href="mailto:contact@arezkidrir.fr">
 					<span>contact@arezkidrir.fr</span>
 				</a>

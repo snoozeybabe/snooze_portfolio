@@ -27,9 +27,24 @@ const TestHeader = ({ previousLabel }) => {
 	};
 
 	useEffect(() => {
-		document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
+		//document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
 		return () => {};
 	}, [previousLabel]);
+
+	//UL CONTAINER STYLE
+
+	// isplay: flex;
+	//   flex-direction: row;
+	//   justify-content: end;
+
+	// UL STYLE
+
+	// align-items: center;
+	// display: flex;
+	// flex-direction: row;
+	// width: 80%;
+	// justify-content: end;
+	// gap: 25px;
 
 	return (
 		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-lightOrange dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-ligthBlue">
@@ -41,30 +56,31 @@ const TestHeader = ({ previousLabel }) => {
 					crossOrigin="true"
 				/>
 			</Head>
-			<div className="m-0 h-16 flex flex-row  text-darkBlue dark:text-ligthBlue">
-				<div className="w-[10%]"></div>
-				<div className="w-[70%] flex flex-row justify-center">
-					<Link href="#about" scroll={true} className="w-5">
-						<button
-							id="btnHeader"
-							className="ml-[13%]"
-							onClick={e => {
-								// dispatch({
-								// 	type: 'UPDATE_ROUTE',
-								// 	payload: router.pathname,
-								// });
-								// setNextIdx(nextIndex - 1);
-								// setPrevIdx(prevIndex === 0 ? 0 : prevIndex - 1);
-							}}>
-							{previousLabel !== null ? previousLabel : 'Welcome'}
-						</button>
-					</Link>
+			<div className="m-0 h-16 flex flex-row justify-end text-darkBlue dark:text-ligthBlue gap-4">
+				<div className="w-[65%] flex flex-row justify-center">
+					<ul className="list-none flex flex-row items-center w-[80%] justify-end gap-[25px]">
+						<li>
+							<a href="/">Welcome</a>
+						</li>
+						<li>
+							<a href="/">About</a>
+						</li>
+						<li>
+							<a href="/">Skills</a>
+						</li>
+						<li>
+							<a href="/">Works</a>
+						</li>
+						<li>
+							<a href="/">Contact</a>
+						</li>
+					</ul>
 				</div>
 				<div
 					title={theme === 'dark' ? `I'm the lighter` : `I'm the darker`}
-					className="w-[20%] flex flex-end justify-end">
+					className="w-[5%] flex items-center">
 					<button
-						className={`w-[25%]f fill-darkBlue dark:fill-lightOrange`}
+						className={` fill-lightOrange dark:fill-lightOrange`}
 						onClick={e => {
 							setTheme(theme === 'dark' ? 'light' : 'dark');
 							setThemeLabel(theme === 'dark' ? 'Dark' : 'Light');

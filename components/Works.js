@@ -149,7 +149,7 @@ const tableData = {
 			company: 'Side project',
 			id_parent: 'NULL',
 			main_stack: 'nextjs_tailwind',
-			project: 'My Portfolio',
+			project: 'This Portfolio',
 			description:
 				'creating and developing the website that you are actually using.',
 			is_data: '0',
@@ -326,9 +326,11 @@ export default function Works({ isMobile }) {
 		return (
 			<table className="table-auto min-w-full text-left">
 				<thead className="dark:bg-lightOrange dark:text-darkBlue">
-					<tr className="border">
+					<tr className="border border-darkBlue  dark:border-lightOrange ">
 						{d.headers.map(h => (
-							<th className="border text-center">{h}</th>
+							<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
+								{h}
+							</th>
 						))}
 					</tr>
 				</thead>
@@ -336,19 +338,33 @@ export default function Works({ isMobile }) {
 					{d.datas.map(row => {
 						return (
 							<tr className="border text-center">
-								<td className="border  ">{row.id}</td>
-								<td className="border ">{row.year}</td>
-								<td className="border ">{row.company}</td>
+								<td className="border border-darkBlue dark:border-ligthBlue  ">
+									{row.id}
+								</td>
+								<td className="border border-darkBlue dark:border-ligthBlue ">
+									{row.year}
+								</td>
+								<td className="border border-darkBlue dark:border-ligthBlue">
+									{row.company}
+								</td>
 								<td
-									className={`border ${
+									className={`border border-darkBlue dark:border-ligthBlue ${
 										row.id_parent === 'NULL' ? 'opacity-30' : ''
 									}`}>
 									{row.id_parent}
 								</td>
-								<td className="border ">{row.main_stack}</td>
-								<td className="border ">{row.project}</td>
-								<td className="border ">{row.description}</td>
-								<td className="border ">{row.is_data}</td>
+								<td className="border border-darkBlue dark:border-ligthBlue">
+									{row.main_stack}
+								</td>
+								<td className="border border-darkBlue dark:border-ligthBlue ">
+									{row.project}
+								</td>
+								<td className="border border-darkBlue dark:border-ligthBlue">
+									{row.description}
+								</td>
+								<td className="border border-darkBlue dark:border-ligthBlue">
+									{row.is_data}
+								</td>
 							</tr>
 						);
 					})}
@@ -358,7 +374,7 @@ export default function Works({ isMobile }) {
 	};
 
 	return (
-		<div className="grow container-sm h-[100%] flex flex-col  ">
+		<div className="grow container-sm h-[100%] flex flex-col sm:pt-4 ">
 			{isMobile ? (
 				<React.Fragment>
 					<div className="relative min-w-full h-[5%] pt-[10px]">
@@ -396,9 +412,12 @@ export default function Works({ isMobile }) {
 				</React.Fragment>
 			) : (
 				<React.Fragment>
-					<div className="relative  h-[25%] flex align-center justify-around gap-10 items-center">
+					<span className={`relative text-3xl mt-[12px] ml-5 text-center`}>
+						Projects I Worked On
+					</span>
+					<div className="relative  h-[20%] flex align-center justify-center gap-3 items-center">
 						<div className=" lg:w-[80%] bg-gray-800 shadow-2xl rounded-lg h-[70%] overflow-hidden border border-slate-600">
-							<div className="py-3 px-4 flex ">
+							<div className="pb-3 pt-2 px-4 flex ">
 								<div className="rounded-full w-3 h-3 bg-red-500 mr-2"></div>
 								<div className="rounded-full w-3 h-3 bg-yellow-500 mr-2"></div>
 								<div className="rounded-full w-3 h-3 bg-green-500"></div>
@@ -417,7 +436,7 @@ export default function Works({ isMobile }) {
 							</div>
 						</div>
 						<button
-							className=" w-[100px] h-[50px] dark:bg-lightOrange dark:text-darkBlue rounded"
+							className=" cursor-pointer w-[100px] h-[50px] text-lightBlue border border-lightOrange bg-lightOrange dark:text-darkBlue rounded"
 							onClick={e => {
 								setRunQuery(!runQuery);
 							}}>

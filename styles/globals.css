@@ -62,10 +62,14 @@ a {
   animation-name: from_right;
   animation-duration: 3s;
 }
+#li_about {
+  animation-name: from_right;
+  animation-duration: 1s;
+}
 
 #list_about {
   animation-name: from_bottom;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 
 #animate_from_top {

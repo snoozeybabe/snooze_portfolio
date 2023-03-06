@@ -184,7 +184,7 @@ export default function Skills({ isMobile }) {
 				<React.Fragment>
 					{isMobile ? (
 						<div
-							className="max-w-[130px] h-[120px] relative border border-darkBlue dark:border-ligthBlue   flex flex-row items-center"
+							className="max-w-[130px] h-[120px] relative border border-darkBlue dark:border-lightOrange   flex flex-row items-center"
 							onClick={e => {
 								setSelectedSkill({
 									title: ic.title,
@@ -200,7 +200,7 @@ export default function Skills({ isMobile }) {
 						</div>
 					) : (
 						<div
-							className="group cursor-pointer max-w-[140px] h-[140px] items-center relative border  border-darkBlue dark:border-ligthBlue  flex flex-row  "
+							className="group cursor-pointer resize max-w-[140px] h-[140px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
 							onClick={e => {}}>
 							{' '}
 							<a href={ic.url} target="_blank">
@@ -211,23 +211,27 @@ export default function Skills({ isMobile }) {
 									<span>{`<${ic.title}/>`}</span>
 								</div>
 							</a>
-							<div className="top-[90%] transition-all duration-700 delay-1 ease-in-out opacity-0 duration-10 p-[20px] relative px-[9px] w-[300px] flex flex-col justify-center h-[100px] overflow-hidden group-hover:top-0 group-hover:opacity-100 group-hover:duration-1000 group-hover:text-darkBlue">
-								<a href={ic.url} target="_blank">
-									<span className="text-transparent group-hover:text-darkBlue text-[16px]">
-										{' '}
-									</span>
-									{`<${ic.title}/>`}
-								</a>
-								<p className="text-transparent text-[12px] group-hover:text-darkBlue">
-									{' '}
-									{ic.description}
-								</p>
-							</div>
 						</div>
 					)}
 				</React.Fragment>
 			);
 		});
+	};
+
+	let imgList = [
+		reportingDashboard,
+		reportingProduct,
+		reportingComptability,
+		reportingArcplan,
+		reactSorami,
+	];
+
+	const getProjectsScreens = () => {
+		return imgList.map(imgComponent => (
+			<div className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
+				<Image src={imgComponent} fill objectFit="contain" />
+			</div>
+		));
 	};
 
 	return (
@@ -236,9 +240,9 @@ export default function Skills({ isMobile }) {
 				className={`grow container-sm h-[100%] flex flex-col justify-evenly  ${
 					openDrawer ? 'opacity-50' : ''
 				} `}>
-				<div className="h-1/2 flex flex-col justify-between mt-2 bg-transparent items-center ">
-					<span className="text-3xl mt-[2px] ml-[12px] text-center">
-						I'm daily using
+				<div className="h-1/2 flex flex-col justify-evenly sm:justify-between mt-2 bg-transparent items-center overflow-hidden">
+					<span className="text-3xl mt-[2px] ml-[12px] text-center font-bold">
+						I'm Daily using
 					</span>
 					<div className="dark:scollableList w-[100%]  overflow-scroll flex sm:flex-row sm:flex-wrap sm:justify-center gap-4  scrollbar-hide ml-[12px] bg-transparent  sm:overflow-y-hidden">
 						{getDailyCards(dailyIcons)}
@@ -250,36 +254,10 @@ export default function Skills({ isMobile }) {
 					</span>
 					<div className=" dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
 						<div className="relative flex gap-6 flex-row">
-							<div className=" relativeborder border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
-								<Image src={reportingDashboard} fill objectFit="contain" />
-							</div>
-							<div className=" relativeborder border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
-								<Image src={reportingProduct} fill objectFit="contain" />
-							</div>
-							<div className=" relative border border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
-								<Image src={reportingComptability} fill objectFit="contain" />
-							</div>
-							<div className="relative border border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
-								<Image src={reportingArcplan} fill objectFit="contain" />
-							</div>
-							<div className="relative border border-darkBlue dark:border-ligthBl w-[300px] h-[150px]">
-								<Image src={reactSorami} fill objectFit="contain" />
-							</div>
+							{getProjectsScreens()}
 						</div>
 					</div>
 				</div>
-				{/*	<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
-					<span className="text-3xl mt-[2px] ml-[12px]">...and this</span>
-					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4  overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
-						{getDailyCards(andIcons)}
-					</div>
-				</div>
-				<div className="h-1/3 flex flex-col justify-evenly bg-transparent ">
-					<span className="text-3xl mt-[2px] ml-[12px]">...and sometimes</span>
-					<div className="scollableListLight dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">
-						{getDailyCards(someTimeIcons)}
-					</div>
-			</div>*/}
 			</div>
 			<motion.div
 				variants={variants}
