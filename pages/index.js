@@ -70,7 +70,7 @@ export default function Home() {
 	}, []);
 
 	return (
-		<Layout>
+		<Layout isMobile={isMobile}>
 			<div
 				id="mainContainer"
 				className="h-[100vh] w-[100%] bg-ligthBlue text-darkBlue dark:bg-darkBlue dark:text-ligthBlue overflow-y-auto snap-mandatory snap-y">

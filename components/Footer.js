@@ -37,8 +37,6 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 		if (btnFooterElement) {
 			document.getElementById('btnFooter').animate(fadeInUp, fadeInDownUp);
 		}
-
-		console.log(actualRoute);
 	}, [nextLabel]);
 	return (
 		<React.Fragment>
@@ -51,9 +49,10 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 						crossOrigin="true"
 					/>
 				</Head>
-				<div className="m-0  h-16 flex flex-row ml-2 mr-2 text-darkBlue dark:text-ligthBlue">
+				<div className="m-0 h-16 flex flex-row ml-2 mr-2 text-darkBlue dark:text-ligthBlue">
 					<motion.div
 						variants={variantsBis}
+						className="flex"
 						animate={nextLabel !== null ? 'animate' : 'exit'}>
 						<div className="w-[10%] flex flex-row items-center">
 							<a
@@ -72,7 +71,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 					</motion.div>
 					<div
 						id="btnFooter"
-						className="w-auto flex flex-col justify-around m-auto items-center pl-[115px]">
+						className="w-auto flex flex-col justify-around m-auto items-center sm:pl-[115px]">
 						<Link
 							href={
 								ROUTES[nextIndex] && ROUTES[nextIndex].path !== ''

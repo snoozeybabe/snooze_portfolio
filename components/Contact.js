@@ -25,13 +25,21 @@ export default function Contact() {
 						href="https://www.linkedin.com/in/arezkidrir/"
 						target="_blank"
 						rel="noopener noreferrer">
-						<LinkedinSvg fillColor={fillColor} />
+						<LinkedinSvg
+							fillColor={fillColor}
+							widthProps="80"
+							heightProps="77"
+						/>
 					</a>
 					<a
 						href="https://twitter.com/DrirArezki"
 						target="_blank"
 						rel="noopener noreferrer">
-						<TwitterSvg fillColor={fillColor} />
+						<TwitterSvg
+							fillColor={fillColor}
+							widthProps="70"
+							heightProps="77"
+						/>
 					</a>
 				</div>
 			</div>

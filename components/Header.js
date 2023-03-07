@@ -6,7 +6,8 @@ import { useTheme } from 'next-themes';
 import ThemeSvg from '../assets/svg/ThemeSvg';
 import HeisenbergSvg from '../assets/svg/heisenberg.svg';
 import { GlobalContext } from '../context';
-const TestHeader = ({ previousLabel }) => {
+import MenuIcon from '../assets/svg/MenuIcon';
+const TestHeader = ({ previousLabel, isMobile }) => {
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
 	const { theme, setTheme } = useTheme();
@@ -27,25 +28,12 @@ const TestHeader = ({ previousLabel }) => {
 	};
 
 	useEffect(() => {
+		return () => {};
+	}, []);
+	useEffect(() => {
 		//document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
 		return () => {};
 	}, [previousLabel]);
-
-	//UL CONTAINER STYLE
-
-	// isplay: flex;
-	//   flex-direction: row;
-	//   justify-content: end;
-
-	// UL STYLE
-
-	// align-items: center;
-	// display: flex;
-	// flex-direction: row;
-	// width: 80%;
-	// justify-content: end;
-	// gap: 25px;
-
 	return (
 		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-lightOrange dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-ligthBlue">
 			<Head>
@@ -56,29 +44,39 @@ const TestHeader = ({ previousLabel }) => {
 					crossOrigin="true"
 				/>
 			</Head>
-			<div className="m-0 h-16 flex flex-row justify-end text-darkBlue dark:text-ligthBlue gap-4">
-				<div className="w-[65%] flex flex-row justify-center">
-					<ul className="list-none flex flex-row items-center w-[80%] justify-end gap-[25px]">
-						<li>
-							<a href="/">Welcome</a>
-						</li>
-						<li>
-							<a href="/">About</a>
-						</li>
-						<li>
-							<a href="/">Skills</a>
-						</li>
-						<li>
-							<a href="/">Works</a>
-						</li>
-						<li>
-							<a href="/">Contact</a>
-						</li>
-					</ul>
-				</div>
+			<div
+				className={`m-0 h-16 flex flex-row  ${
+					isMobile ? 'justify-between' : 'justify-end'
+				} text-darkBlue dark:text-ligthBlue gap-4`}>
+				{isMobile ? (
+					<div className="flex justify-center items-center ">
+						{/*<MenuIcon />*/}
+					</div>
+				) : (
+					<div className="w-[65%] flex flex-row justify-end">
+						<ul className="list-none flex flex-row items-center w-[80%] justify-end gap-[25px]">
+							<li>
+								<a href="/">Welcome</a>
+							</li>
+							<li>
+								<a href="/">About</a>
+							</li>
+							<li>
+								<a href="/">Skills</a>
+							</li>
+							<li>
+								<a href="/">Works</a>
+							</li>
+							<li>
+								<a href="/">Contact</a>
+							</li>
+						</ul>
+					</div>
+				)}
+
 				<div
 					title={theme === 'dark' ? `I'm the lighter` : `I'm the darker`}
-					className="w-[5%] flex items-center">
+					className=" flex items-center">
 					<button
 						className={` fill-lightOrange dark:fill-lightOrange`}
 						onClick={e => {

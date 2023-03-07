@@ -1,11 +1,11 @@
 import React from 'react';
 
-function TwitterSvg({ fillColor }) {
+function TwitterSvg({ fillColor, widthProps = '40', heightProps = '32' }) {
 	return (
 		<React.Fragment>
 			<svg
-				width="40"
-				height="32"
+				width={widthProps}
+				height={heightProps}
 				viewBox="0 0 77 71"
 				fill={fillColor}
 				xmlns="http://www.w3.org/2000/svg">

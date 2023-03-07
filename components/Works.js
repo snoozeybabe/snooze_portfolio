@@ -200,6 +200,57 @@ const tableData = {
 	],
 };
 
+const getWorksDatas = d => {
+	return (
+		<table className="table-auto min-w-full text-left">
+			<thead className="dark:bg-lightOrange dark:text-darkBlue border">
+				<tr className="border border-darkBlue  dark:border-lightOrange ">
+					{d.headers.map(h => (
+						<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
+							{h}
+						</th>
+					))}
+				</tr>
+			</thead>
+			<tbody>
+				{d.datas.map(row => {
+					return (
+						<tr className="border text-center">
+							<td className="border border-darkBlue dark:border-ligthBlue  ">
+								{row.id}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue ">
+								{row.year}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue">
+								{row.company}
+							</td>
+							<td
+								className={`border border-darkBlue dark:border-ligthBlue ${
+									row.id_parent === 'NULL' ? 'opacity-30' : ''
+								}`}>
+								{row.id_parent}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue">
+								{row.main_stack}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue ">
+								{row.project}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue">
+								{row.description}
+							</td>
+							<td className="border border-darkBlue dark:border-ligthBlue">
+								{row.is_data}
+							</td>
+						</tr>
+					);
+				})}
+			</tbody>
+		</table>
+	);
+};
+
 export default function Works({ isMobile }) {
 	const [runQuery, setRunQuery] = useState(true);
 	const [nextDisplay, setNextDisplay] = useState(1);
@@ -218,9 +269,11 @@ export default function Works({ isMobile }) {
 	useEffect(() => {
 		const scrollableMain = document.getElementById('mobileContainer');
 		if (scrollableMain) {
-			scrollableMain.addEventListener('scroll', handleTableScroll, {
-				passive: true,
-			});
+			setTimeout(() => {
+				scrollableMain.addEventListener('scroll', handleTableScroll, {
+					passive: true,
+				});
+			}, 2000);
 		}
 		return () => {
 			const scrollableMain = document.getElementById('mobileContainer');
@@ -238,29 +291,26 @@ export default function Works({ isMobile }) {
 		);
 		setPreviousDisplay(actualPosition === 0 ? 0 : actualPosition - 1);
 	}, []);
+
 	const handleTableScroll = e => {
 		setTimeout(() => {
 			const actualPosition = parseInt((e.target.scrollLeft / 280).toFixed());
-
 			const scrollDirection =
-				scrollTablePos <= e.target.scrollLeft ? 'next' : 'prev';
+				scrollTablePos <= actualPosition ? 'next' : 'prev';
 
-			// if (scrollDirection === 'next') {
-			// 	setNextDisplay(
-			// 		nextDisplay >= tableData.datas.length ? nextDisplay : nextDisplay + 1
-			// 	);
-			// 	setPreviousDisplay(nextDisplay - 1);
-			// } else {
-			// 	setNextDisplay(nextDisplay === 1 ? 1 : nextDisplay - 1);
-			// 	setPreviousDisplay(previousDisplay <= 1 ? 0 : previousDisplay - 1);
-			// }
-			setActualPosition(actualPosition);
-			setScrollTablePos(e.target.scrollLeft);
-		}, 1500);
+			setNextDisplay(
+				actualPosition >= tableData.datas.length
+					? actualPosition
+					: actualPosition + 1
+			);
+
+			setPreviousDisplay(actualPosition === 0 ? 0 : actualPosition - 1);
+
+			console.log('Direction', actualPosition);
+		}, 1000);
 	};
 	const linkClick = (e, dir) => {
 		e.preventDefault();
-		//handle manual scroll and set index with position
 		if (dir === 'next') {
 			ref.current?.scrollIntoView({ behavior: 'smooth' });
 			setNextDisplay(
@@ -275,6 +325,7 @@ export default function Works({ isMobile }) {
 	};
 	const ref = useRef(null);
 	const refPrev = useRef(null);
+
 	const getMobileTables = (tData, tHeaders) => {
 		return tData.map((t, idx) => {
 			const tProps =
@@ -290,12 +341,12 @@ export default function Works({ isMobile }) {
 						className="min-h-full min-w-[80%] border border-darkBlue dark:border-ligthBlue text-center snap-center"
 						id={idx}
 						{...tProps}>
-						<thead className="">
+						<thead className="border">
 							<tr>
-								<th className="border  bg-darkYellow text-ligthBlue border-darkBlue dark:bg-ligthBlue dark:text-darkBlue">
+								<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:bg-ligthBlue dark:text-darkBlue">
 									field
 								</th>
-								<th className="border  bg-darkYellow text-ligthBlue border-darkBlue dark:bg-ligthBlue dark:text-darkBlue">
+								<th className="border  border-ligthBlue bg-darkBlue text-ligthBlue  dark:bg-ligthBlue dark:text-darkBlue">
 									value
 								</th>
 							</tr>
@@ -322,63 +373,15 @@ export default function Works({ isMobile }) {
 			);
 		});
 	};
-	const getWorksDatas = d => {
-		return (
-			<table className="table-auto min-w-full text-left">
-				<thead className="dark:bg-lightOrange dark:text-darkBlue">
-					<tr className="border border-darkBlue  dark:border-lightOrange ">
-						{d.headers.map(h => (
-							<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
-								{h}
-							</th>
-						))}
-					</tr>
-				</thead>
-				<tbody>
-					{d.datas.map(row => {
-						return (
-							<tr className="border text-center">
-								<td className="border border-darkBlue dark:border-ligthBlue  ">
-									{row.id}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue ">
-									{row.year}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue">
-									{row.company}
-								</td>
-								<td
-									className={`border border-darkBlue dark:border-ligthBlue ${
-										row.id_parent === 'NULL' ? 'opacity-30' : ''
-									}`}>
-									{row.id_parent}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue">
-									{row.main_stack}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue ">
-									{row.project}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue">
-									{row.description}
-								</td>
-								<td className="border border-darkBlue dark:border-ligthBlue">
-									{row.is_data}
-								</td>
-							</tr>
-						);
-					})}
-				</tbody>
-			</table>
-		);
-	};
 
 	return (
 		<div className="grow container-sm h-[100%] flex flex-col sm:pt-4 ">
 			{isMobile ? (
 				<React.Fragment>
-					<div className="relative min-w-full h-[5%] pt-[10px]">
-						<span className={`relative  text-3xl mt-[12px] ml-5`}>Works</span>
+					<div className="relative min-w-full flex justify-center items-center pt-[10px]">
+						<span className={`relative  text-3xl mt-[12px] ml-5 font-bold`}>
+							Works
+						</span>
 					</div>
 					<div className="relative flex flex-col justify-center overflow-hidden bg-none py-12">
 						<div
@@ -387,6 +390,8 @@ export default function Works({ isMobile }) {
 							{getMobileTables(tableData.datas, tableData.headers)}
 						</div>
 
+						{/*
+									Make it work putain !
 						<div className=" h-20 mt-10px flex items-center justify-evenly">
 							<a
 								disabled={nextDisplay === 1}
@@ -407,12 +412,13 @@ export default function Works({ isMobile }) {
 								}}>
 								Next
 							</a>
-						</div>
+							</div>*/}
 					</div>
 				</React.Fragment>
 			) : (
 				<React.Fragment>
-					<span className={`relative text-3xl mt-[12px] ml-5 text-center`}>
+					<span
+						className={`relative text-3xl mt-[12px] ml-5 text-center font-bold`}>
 						Projects I Worked On
 					</span>
 					<div className="relative  h-[20%] flex align-center justify-center gap-3 items-center">
@@ -445,7 +451,7 @@ export default function Works({ isMobile }) {
 					</div>
 					<div className="relative h-[85%] flex align-center items-center justify-center ">
 						<motion.div
-							className="w-[90%] h-[80%] text-[13px]"
+							className=" sm:w-[90%] h-[80%] text-[13px]"
 							variants={variantsBis}
 							animate={runQuery ? 'animate' : 'initial'}>
 							{getWorksDatas(tableData)}

@@ -200,7 +200,7 @@ export default function Skills({ isMobile }) {
 						</div>
 					) : (
 						<div
-							className="group cursor-pointer resize max-w-[140px] h-[140px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
+							className="group cursor-pointer  max-w-[140px] h-[140px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
 							onClick={e => {}}>
 							{' '}
 							<a href={ic.url} target="_blank">
@@ -237,9 +237,9 @@ export default function Skills({ isMobile }) {
 	return (
 		<React.Fragment>
 			<div
-				className={`grow container-sm h-[100%] flex flex-col justify-evenly  ${
-					openDrawer ? 'opacity-50' : ''
-				} `}>
+				className={`grow container-sm ${
+					isMobile ? 'h-[80%]' : 'h-[100%]'
+				} flex flex-col justify-evenly  ${openDrawer ? 'opacity-50' : ''} `}>
 				<div className="h-1/2 flex flex-col justify-evenly sm:justify-between mt-2 bg-transparent items-center overflow-hidden">
 					<span className="text-3xl mt-[2px] ml-[12px] text-center font-bold">
 						I'm Daily using
@@ -249,7 +249,7 @@ export default function Skills({ isMobile }) {
 					</div>
 				</div>
 				<div className="h-1/2 flex flex-col justify-evenly bg-transparent ">
-					<span className="text-3xl mt-[2px] ml-[12px] text-center">
+					<span className="text-3xl mt-[2px] ml-[12px] text-center font-bold">
 						To Make This
 					</span>
 					<div className=" dark:scollableList w-[95%] flex flex-nowrap gap-4 overflow-scroll scrollbar-hide ml-[12px] bg-transparent overflow-y-hidden">

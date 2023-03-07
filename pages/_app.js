@@ -31,8 +31,6 @@ function MyApp({ Component, pageProps }) {
 		}
 	};
 
-	console.log(size.width);
-
 	const animSize = heightAnimation(size.width);
 	return (
 		<ContextProvider>
@@ -40,7 +38,7 @@ function MyApp({ Component, pageProps }) {
 				<Head>
 					<title>Arezki Drir</title>
 					<link
-						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap"
+						href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
 						rel="stylesheet"
 					/>
 					<link

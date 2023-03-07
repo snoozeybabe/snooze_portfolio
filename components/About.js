@@ -2,7 +2,6 @@ import Head from 'next/head';
 import React from 'react';
 
 export default function About({ isMobile, position }) {
-	console.log('POSITION', position);
 	const aboutDatas = [
 		{
 			title: '2015 - Hybrid mobile development 📱',
@@ -35,7 +34,7 @@ export default function About({ isMobile, position }) {
 					className="relative ml-[55px] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px]  after:ml-[-42px] after:z-[5] after:content-[''] after:absolute 
 					after:border-[1px] after:border-solid after:border-darkBlue dark:after:border-ligthBlue  after:pointer-events-none after:rotate-90">
 					<div className="relative flex flex-col md:gap-1">
-						<span className="text-[2xl] after:mt-[5px] md:text-3xl  after:block dark:after:bg-lightOrange after:w-[35px] after:h-[2px] after:content-['']">
+						<span className="text-[2xl] after:mt-[5px] md:text-3xl  after:block dark:after:bg-ligthBlue after:w-[35px] after:h-[2px] after:content-['']">
 							{rm.title}
 						</span>
 						<br />
@@ -63,7 +62,7 @@ export default function About({ isMobile, position }) {
 														after:content-[''] after:absolute after:left-[-1%] after:top-[50%] after:h-[40px] after:w-0 after:mt-[-20px] after:z-[5] after:border-[1px] after:border-solid after:border-darkBlue 
 														before:content[''] before:absolute before:w-[0] before:left-[12px] before:h-[80%] before:z-[5] before:border before:border-solid  before:border-darkBlue dark:before:border-ligthBlue 
 														dark:after:border-ligthBlue after:pointer-events-none after:rotate-90`}>
-						<span className="text-3xl pl-1">{r.title}</span>
+						<span className="text-3xl pl-1 font-bold">{r.title}</span>
 						<span className="text-[16px] pl-1">{r.description} </span>
 					</div>
 				</li>

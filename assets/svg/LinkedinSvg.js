@@ -1,11 +1,11 @@
 import React from 'react';
 
-function LinkedinSvg({ fillColor }) {
+function LinkedinSvg({ fillColor, widthProps = '47', heightProps = '41' }) {
 	return (
 		<React.Fragment>
 			<svg
-				width="47"
-				height="41"
+				width={widthProps}
+				height={heightProps}
 				viewBox="0 0 94 105"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg">
