@@ -242,7 +242,7 @@ export default function Skills({ isMobile }) {
 				} flex flex-col justify-evenly  ${openDrawer ? 'opacity-50' : ''} `}>
 				<div className="h-1/2 flex flex-col justify-evenly sm:justify-between mt-2 bg-transparent items-center overflow-hidden">
 					<span className="text-3xl mt-[2px] ml-[12px] text-center font-bold">
-						I'm Daily using
+						I'm Daily Using
 					</span>
 					<div className="dark:scollableList w-[100%]  overflow-scroll flex sm:flex-row sm:flex-wrap sm:justify-center gap-4  scrollbar-hide ml-[12px] bg-transparent  sm:overflow-y-hidden">
 						{getDailyCards(dailyIcons)}

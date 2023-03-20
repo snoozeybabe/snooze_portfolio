@@ -74,23 +74,34 @@ export default function Home() {
 			<div
 				id="mainContainer"
 				className="h-[100vh] w-[100%] bg-ligthBlue text-darkBlue dark:bg-darkBlue dark:text-ligthBlue overflow-y-auto snap-mandatory snap-y">
-				<div className="h-[100%] relative overflow-y-auto snap-center">
+				<section
+					id="sec-home"
+					className="h-[100%] relative overflow-y-auto snap-center">
 					<Homepage />
-				</div>
-				<div
+				</section>
+
+				<section
 					className="h-[100%] relative overflow-y-auto snap-center"
+					id="sec-about"
 					ref={myRef}>
 					<About isMobile={isMobile} position={scrollY} />
-				</div>
-				<div className="h-[100%] relative  overflow-y-auto snap-center">
+				</section>
+
+				<section
+					id="sec-skills"
+					className="h-[100%] relative  overflow-y-auto snap-center">
 					<Skills isMobile={isMobile} />
-				</div>
-				<div className="h-[100%] relative  overflow-y-auto snap-center">
+				</section>
+				<section
+					id="sec-works"
+					className="h-[100%] relative  overflow-y-auto snap-center">
 					<Works isMobile={isMobile} />
-				</div>
-				<div className="h-[100%] relative  overflow-y-auto snap-center">
+				</section>
+				<section
+					id="sec-contact"
+					className="h-[100%] relative  overflow-y-auto snap-center">
 					<Contact isMobile={isMobile} />
-				</div>
+				</section>
 			</div>
 		</Layout>
 	);

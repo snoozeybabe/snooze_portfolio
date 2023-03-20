@@ -15,7 +15,9 @@ const Layout = ({ isMobile, children }) => {
 			<div className="flex flex-1 flex-col overflow-y-auto relative">
 				{children}
 			</div>
-			<Footer nextLabel={state.nextRouteName} actualRoute={state.routeName} />
+			{isMobile ? null : (
+				<Footer nextLabel={state.nextRouteName} actualRoute={state.routeName} />
+			)}
 		</div>
 	);
 };

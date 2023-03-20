@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css';
 import Homepage from '../components/Home';
 import profilImg from '../assets/img/IMAGE_ME.png';
 import Image from 'next/image';
-
+import MenuBurger from './MenuBurger';
 export default function Home({ sHeight }) {
 	return (
 		<div

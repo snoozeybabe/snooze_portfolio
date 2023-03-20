@@ -53,7 +53,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 					<motion.div
 						variants={variantsBis}
 						className="flex"
-						animate={nextLabel !== null ? 'animate' : 'exit'}>
+						animate={nextLabel === null ? 'exit' : 'animate'}>
 						<div className="w-[10%] flex flex-row items-center">
 							<a
 								href="https://www.linkedin.com/in/arezkidrir/"
@@ -97,7 +97,6 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 						</Link>
 						{nextLabel !== null ? <ArrowDown fillColor={fillColor} /> : null}
 					</div>
-					<div className="w-[20%]"></div>
 				</div>
 			</div>
 		</React.Fragment>
