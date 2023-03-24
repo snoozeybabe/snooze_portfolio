@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import Head from 'next/head';
-import { ROUTES } from '../utils/constant';
+import { headersParams, ROUTES } from '../utils/constant';
 import { useTheme } from 'next-themes';
 import ThemeSvg from '../assets/svg/ThemeSvg';
 import HeisenbergSvg from '../assets/svg/heisenberg.svg';
@@ -9,34 +9,6 @@ import MenuIcon from '../assets/svg/MenuIcon';
 import { MenuBurger } from './MenuBurger';
 import LinkedinSvg from '../assets/svg/LinkedinSvg';
 import TwitterSvg from '../assets/svg/TwitterSvg';
-
-const headersParams = [
-	{
-		label: 'Welcome',
-		idSection: 'sec-home',
-		marginSlider: '0px',
-	},
-	{
-		label: 'About',
-		idSection: 'sec-about',
-		marginSlider: '105px',
-	},
-	{
-		label: 'Skills',
-		idSection: 'sec-skills',
-		marginSlider: '210px',
-	},
-	{
-		label: 'Works',
-		idSection: 'sec-works',
-		marginSlider: '315px',
-	},
-	{
-		label: 'Contact',
-		idSection: 'sec-contact',
-		marginSlider: '420px',
-	},
-];
 
 let initSliderMargin = 0;
 const getHeaderItems = () => {
@@ -97,6 +69,8 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 		iterations: 1,
 		easing: 'ease-out',
 	};
+
+	//To-Do test useReducer for changing state sur l'évolution des headers.
 
 	// useEffect(() => {
 	// 	return () => {};

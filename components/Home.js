@@ -54,8 +54,3 @@ export default function Home({ sHeight }) {
 		</div>
 	);
 }
-
-// absolute w-[80%] h-[70%] top-[30px] left-[20px]
-// 										 sm:top-[1em] sm:left-[0em]
-// 										 md:w-[390px] md:h-[390px] md:min-w-[390px] md:min-h-[390px]
-// 										 lg:border z-[1000]

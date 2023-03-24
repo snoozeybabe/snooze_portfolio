@@ -1,23 +1,8 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import {
-	MySqlSvg,
-	DataGripSvg,
-	TailwindSvg,
-	CubeJsSvg,
-	ArcplanSvg,
-	ReactSvg,
-	DockerSvg,
-	GitlabSvg,
-	PythonSvg,
-	ExcelSvg,
-	NextJsSvg,
-	FigmaSvg,
-	ReduxSvg,
-	CloseIconSvg,
-} from '../assets/svg/SkillsSvg';
-
+import { CloseIconSvg } from '../assets/svg/SkillsSvg';
+import { dailyIcons, andIcons } from '../utils/constant';
 import reportingComptability from '../assets/img/reporting_v_compt.png';
 import reportingDashboard from '../assets/img/reporting_dashboard.png';
 import reportingProduct from '../assets/img/reporting_v_product.png';
@@ -54,130 +39,6 @@ export default function Skills({ isMobile }) {
 		},
 	};
 
-	const dailyIcons = [
-		{
-			icon: <MySqlSvg />,
-			title: 'MySql',
-			description: "Of course i'm a data analyst",
-			url: 'https://www.mysql.com/',
-		},
-		{
-			icon: <CubeJsSvg />,
-			title: 'CubeJs',
-			description:
-				'This powerful tool helps me to aggregating, quering and displying datas',
-			url: 'https://cube.dev',
-		},
-		{
-			icon: <ArcplanSvg />,
-			title: 'Arcplan',
-			description: 'The BI software to generate all the reports',
-			url: 'https://insightsoftware.com/longview/longview-analytics/',
-		},
-		{
-			icon: <DataGripSvg />,
-			title: 'DataGrip',
-			description: 'Perfect IDE for creating amazing SQL queries',
-			url: 'https://www.jetbrains.com/datagrip/',
-		},
-		{
-			icon: <ReactSvg />,
-			title: 'ReactJs',
-			description:
-				'The fullstack part, mixing BI software and react to create beautiful dashboard',
-			url: 'https://reactjs.org/',
-		},
-		{
-			icon: <DockerSvg />,
-			title: 'Docker',
-			description:
-				'Shipping and deploying dashboards and report easily to customers ',
-			url: 'https://www.docker.com',
-		},
-		{
-			icon: <GitlabSvg />,
-			title: 'Gitlab',
-			description: 'Everthing need to be build and controlled',
-			url: 'https://about.gitlab.com/',
-		},
-		{
-			icon: <ExcelSvg />,
-			title: 'Excel',
-			description: `The grand father of data analysis tools,`,
-			url: 'https://www.microsoft.com/',
-		},
-		{
-			icon: <PythonSvg />,
-			title: 'Python',
-			description: 'Fetching, formatting, scrapping,displaying datas and more',
-			url: 'https://www.python.org',
-		},
-		{
-			icon: <TailwindSvg />,
-			title: 'Tailwind',
-			description: 'The power of CSS easier and faster',
-			url: 'https://tailwindcss.com',
-		},
-		{
-			icon: <NextJsSvg />,
-			title: 'NextJs',
-			description: 'Sometimes a side projects pops from nowhere',
-			url: 'https://nextjs.org/',
-		},
-		{
-			icon: <FigmaSvg />,
-			title: 'Figma',
-			description: 'Trying to build something beautiful like this portfolio',
-			figma: 'https://www.figma.com/',
-		},
-		{
-			icon: <ReduxSvg />,
-			title: 'Redux',
-			description: 'Once uppon a time it was an amazing tool',
-			url: 'https://redux.js.org',
-		},
-	];
-
-	const andIcons = [
-		{
-			icon: <ExcelSvg />,
-			title: 'Excel',
-			description: `The grand father of data analysis tools,`,
-			url: 'https://www.microsoft.com/',
-		},
-		{
-			icon: <PythonSvg />,
-			title: 'Python',
-			description: 'Fetching, formatting, scrapping,displaying datas and more',
-			url: 'https://www.python.org',
-		},
-		{
-			icon: <TailwindSvg />,
-			title: 'Tailwind',
-			description: 'The power of CSS easier and faster',
-			url: 'https://tailwindcss.com',
-		},
-	];
-	// const someTimeIcons = [
-	// 	{
-	// 		icon: <NextJsSvg />,
-	// 		title: 'NextJs',
-	// 		description: 'Sometimes a side projects pops from nowhere',
-	// 		url: 'https://nextjs.org/',
-	// 	},
-	// 	{
-	// 		icon: <FigmaSvg />,
-	// 		title: 'Figma',
-	// 		description: 'Trying to build something beautiful like this portfolio',
-	// 		figma: 'https://www.figma.com/',
-	// 	},
-	// 	{
-	// 		icon: <ReduxSvg />,
-	// 		title: 'Redux',
-	// 		description: 'Once uppon a time it was an amazing tool',
-	// 		url: 'https://redux.js.org',
-	// 	},
-	// ];
 	const getDailyCards = cardDatas => {
 		return cardDatas.map(ic => {
 			return (
@@ -240,7 +101,7 @@ export default function Skills({ isMobile }) {
 				className={`grow container-sm ${
 					isMobile ? 'h-[80%]' : 'h-[100%]'
 				} flex flex-col justify-evenly  ${openDrawer ? 'opacity-50' : ''} `}>
-				<div className="h-1/2 flex flex-col justify-evenly sm:justify-between mt-2 bg-transparent items-center overflow-hidden">
+				<div className="h-1/2 flex flex-col justify-evenly sm:justify-between mt-2 bg-transparent items-center overflow-hidden gap-4">
 					<span className="text-3xl mt-[2px] ml-[12px] text-center font-bold">
 						I'm Daily Using
 					</span>
