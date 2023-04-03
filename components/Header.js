@@ -12,11 +12,14 @@ import TwitterSvg from '../assets/svg/TwitterSvg';
 
 let initSliderMargin = 0;
 const getHeaderItems = () => {
-	return headersParams.map(h => {
+	return headersParams.map((h,idx) => {
 		return (
 			<li
 				className="w-[80px] cursor-pointer"
+				key={idx}
 				onClick={e => {
+
+		
 					document.getElementById(h.idSection).scrollIntoView({
 						behavior: 'smooth',
 					});
@@ -32,10 +35,11 @@ const getHeaderItems = () => {
 };
 
 const getMobileHeaders = () => {
-	return headersParams.map(h => {
+	return headersParams.map((h,idx) => {
 		return (
 			<li
 				className="border border-darkBlue dark:border-ligthBlue text-darkBlue dark:text-ligthBlue h-[10%] m-0"
+				key={idx}
 				onClick={e => {
 					document.getElementById(h.idSection).scrollIntoView({
 						behavior: 'smooth',
@@ -51,11 +55,12 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 	const [prevIndex, setPrevIdx] = useState(0);
 	const { theme, setTheme } = useTheme();
 	const [marginSlider, setMarginSlider] = useState('0px');
-
 	const [drawerOpen, toggleDrawerOpen] = useState(false);
 	const { state, dispatch } = useContext(GlobalContext);
 	const [themeLabel, setThemeLabel] = useState('Light');
 	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
+
+	const { position } = state;
 
 	const fadeInDown = [
 		{ opacity: '0', transform: 'translateY(-10px)' },
@@ -72,13 +77,20 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 
 	//To-Do test useReducer for changing state sur l'évolution des headers.
 
-	// useEffect(() => {
-	// 	return () => {};
-	// }, []);
 	useEffect(() => {
-		//document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
+		let newMarginSlider = `${(position * 105)}px`;
+		setMarginSlider(newMarginSlider)
+
 		return () => {};
-	}, [previousLabel]);
+	}, [position]);
+
+	
+
+
+	// useEffect(() => {
+	// 	//document.getElementById('btnHeader').animate(fadeInDown, fadeInDownTiming);
+	// 	return () => {};
+	// }, [position]);
 	return (
 		<div className=" bg-ligthBlue border-0 border-b  border-b-darkBlue  text-lightOrange dark:bg-darkBlue dark:text-lightOrange text-center dark:border-b-ligthBlue">
 			<Head>
@@ -131,7 +143,7 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 						</ul>
 						<span
 							id="header_slider"
-							className={`relative bottom-0 top-0 w-[80px] h-[10%] ml-0 bg-lightOrange`}></span>
+							className={`relative bottom-0 top-0 w-[80px] h-[10%]  bg-lightOrange`} style={{ marginLeft : marginSlider}}></span>
 					</div>
 				)}
 

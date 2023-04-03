@@ -19,6 +19,10 @@ import { useTheme } from 'next-themes';
 import { ROUTES } from '../utils/constant';
 import { GlobalContext } from '../context';
 import useWindowSize from '../hooks/useWindowSize';
+import { useScrollPosition } from '../hooks/useScrollPosition';
+
+
+
 
 export default function Home() {
 	const { theme, setTheme } = useTheme();
@@ -43,7 +47,9 @@ export default function Home() {
 			type: 'UPDATE_SCREEN_POSITION',
 			payload: modScrollY,
 		});
+
 	}, [modScrollY]);
+
 	const fillColor = theme === 'light' ? '#142850' : '#ff8367';
 	const myRef = useRef();
 
