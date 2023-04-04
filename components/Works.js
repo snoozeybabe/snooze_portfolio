@@ -10,17 +10,17 @@ const getWorksDatas = d => {
 		<table className="table-auto min-w-full text-left">
 			<thead className="dark:bg-lightOrange dark:text-darkBlue border">
 				<tr className="border border-darkBlue  dark:border-lightOrange ">
-					{d.headers.map(h => (
-						<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
+					{d.headers.map((h,idx) => (
+						<th key={idx+60} className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
 							{h}
 						</th>
 					))}
 				</tr>
 			</thead>
 			<tbody>
-				{d.datas.map(row => {
+				{d.datas.map((row,idx) => {
 					return (
-						<tr className="border text-center">
+						<tr className="border text-center" key={idx+ 100}>
 							<td className="border border-darkBlue dark:border-ligthBlue  ">
 								{row.id}
 							</td>
@@ -132,6 +132,7 @@ export default function Works({ isMobile }) {
 	const refPrev = useRef(null);
 
 	const getMobileTables = (tData, tHeaders) => {
+		Number(Math.random() *1000).toFixed(0)
 		return tData.map((t, idx) => {
 			const tProps =
 				idx === nextDisplay
@@ -146,8 +147,8 @@ export default function Works({ isMobile }) {
 						className="min-h-full min-w-[80%] border border-darkBlue dark:border-ligthBlue text-center snap-center"
 						id={idx}
 						{...tProps}>
-						<thead className="border">
-							<tr>
+						<thead className="border"  key={idx + 30}>
+							<tr key={idx + 20}>
 								<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:bg-ligthBlue dark:text-darkBlue">
 									field
 								</th>
@@ -157,9 +158,9 @@ export default function Works({ isMobile }) {
 							</tr>
 						</thead>
 						<tbody>
-							{tHeaders.map(h => {
+							{tHeaders.map((h,idx) => {
 								return (
-									<tr className="borderborder-darkBlue dark:border-ligthBlue ">
+									<tr key={idx + 50} className="borderborder-darkBlue dark:border-ligthBlue ">
 										<td className="border border-darkBlue dark:border-ligthBlue ">
 											{h}
 										</td>
@@ -194,30 +195,6 @@ export default function Works({ isMobile }) {
 							id="mobileContainer">
 							{getMobileTables(tableData.datas, tableData.headers)}
 						</div>
-
-						{/*
-									Make it work putain !
-						<div className=" h-20 mt-10px flex items-center justify-evenly">
-							<a
-								disabled={nextDisplay === 1}
-								className={`border flex border-darkYellow justify-center items-center dark:border-ligthBlue w-[100px] h-[35px] text-center ${
-									nextDisplay === 1 ? 'opacity-40' : ''
-								}`}
-								onClick={e => {
-									linkClick(e, 'prev');
-								}}>
-								Prev.
-							</a>
-							<a
-								className={`border border-darkBlue  flex justify-center items-center dark:border-ligthBlue  w-[100px]  h-[35px] text-center ${
-									nextDisplay === tableData.datas.length ? 'opacity-40' : ''
-								}`}
-								onClick={e => {
-									linkClick(e, 'next');
-								}}>
-								Next
-							</a>
-							</div>*/}
 					</div>
 				</React.Fragment>
 			) : (

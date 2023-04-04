@@ -357,9 +357,9 @@ const ExcelSvg = () => {
 				x1="203.513"
 				gradientUnits="userSpaceOnUse"
 				id="a">
-				<stop offset="0" stop-color="#18884f" />
-				<stop offset=".5" stop-color="#117e43" />
-				<stop offset="1" stop-color="#0b6631" />
+				<stop offset="0" stopColor="#18884f" />
+				<stop offset=".5" stopColor="#117e43" />
+				<stop offset="1" stopColor="#0b6631" />
 			</linearGradient>
 			<path
 				d="M97.607 479.25h976.285c53.907 0 97.607 43.7 97.607 97.607v976.285c0 53.907-43.7 97.607-97.607 97.607H97.607C43.7 1650.75 0 1607.05 0 1553.143V576.857c0-53.907 43.7-97.607 97.607-97.607z"

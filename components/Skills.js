@@ -40,11 +40,12 @@ export default function Skills({ isMobile }) {
 	};
 
 	const getDailyCards = cardDatas => {
-		return cardDatas.map(ic => {
+		return cardDatas.map((ic,idx) => {
 			return (
 				<React.Fragment>
 					{isMobile ? (
 						<div
+						key={idx + 40}
 							className="max-w-[130px] h-[120px] relative border border-darkBlue dark:border-lightOrange   flex flex-row items-center"
 							onClick={e => {
 								setSelectedSkill({
@@ -61,7 +62,8 @@ export default function Skills({ isMobile }) {
 						</div>
 					) : (
 						<div
-							className="group cursor-pointer  max-w-[140px] h-[140px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
+						key={idx + 40}
+							className="group cursor-pointer  max-w-[120px] h-[120px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
 							onClick={e => {}}>
 							{' '}
 							<a href={ic.url} target="_blank">
@@ -88,9 +90,9 @@ export default function Skills({ isMobile }) {
 	];
 
 	const getProjectsScreens = () => {
-		return imgList.map(imgComponent => (
-			<div className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
-				<Image src={imgComponent} fill objectFit="contain" />
+		return imgList.map((imgComponent, idx) => (
+			<div key={idx + 200} className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
+				<Image src={imgComponent} fill="true" objectFit="contain" />
 			</div>
 		));
 	};
