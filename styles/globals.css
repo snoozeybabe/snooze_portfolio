@@ -2,12 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Kanit:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Futura,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family:Montserrat,Futura,-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -18,4 +21,241 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+
+
+
+@layer components {
+  .textStrokeTransparentDark {
+    color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #2888B8;
+  }
+
+  .textStrokeTransparentLight {
+    color: transparent;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #030523;
+  }
+
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+
+#description_profil {
+  animation-name: from_left;
+  animation-duration: 2s;
+}
+
+
+
+#img_profil {
+  animation-name: from_right;
+  animation-duration: 3s;
+}
+#li_about {
+  animation-name: from_right;
+  animation-duration: 1s;
+}
+
+#header_slider {
+  transition: all 700ms;
+}
+
+#list_about {
+  animation-name: from_bottom;
+  animation-duration: 0.5s;
+}
+
+#animate_from_top {
+  animation-name: from_top;
+  animation-duration: 1s;
+}
+
+
+@keyframes from_right{
+  0%{
+  opacity : 0;
+  transform: translateX(30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_left{
+  0%{
+  opacity : 0;
+  transform: translateX(-30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_bottom{
+  0%{
+  opacity : 0;
+  transform: translateY(30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+@keyframes from_top{
+  0%{
+  opacity : 0;
+  transform: translateY(-30px);
+}
+  100%{
+  opacity : 1;
+}
+} 
+
+
+
+.scollableList {
+
+  background-image: 
+	
+    /* Shadows */ 
+    linear-gradient(to right, #030523, #030523),
+    linear-gradient(to right, #030523, #030523),
+  
+/* Shadow covers */ 
+    linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)),
+    linear-gradient(to left, rgba(0,0,0,.25), rgba(255,255,255,0));   
+
+  background-position: left center, right center, left center, right center;
+	background-repeat: no-repeat;
+	background-color: #030523;
+	background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+	
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
+
+
+.scollableListLight {
+
+  background-image: 
+	
+    /* Shadows */ 
+    linear-gradient(to right, #ADC1EA, #ADC1EA),
+    linear-gradient(to right, #ADC1EA, #ADC1EA),
+  
+/* Shadow covers */ 
+    linear-gradient(to right, rgba(0,0,0,.25), rgba(255,255,255,0)),
+    linear-gradient(to left, rgba(0,0,0,.25), rgba(255,255,255,0));   
+
+  background-position: left center, right center, left center, right center;
+	background-repeat: no-repeat;
+	background-color: #ADC1EA;
+	background-size: 20px 100%, 20px 100%, 10px 100%, 10px 100%;
+	
+	/* Opera doesn't support this in the shorthand */
+	background-attachment: local, local, scroll, scroll;
+}
+}
+
+@media (max-width: 1024px) {
+  nav {
+    position: absolute;
+    top : 0;
+    top : 0;
+    bottom : 0;
+    width: 300px;
+  }
+  
+  /* .background {
+    position: absolute;
+    top : 0;
+    left : 0;
+    bottom: 0;
+    width: 300px;
+    background: #fff;
+  }
+   */
+  /* button {
+    outline: none;
+    border :none;
+    cursor: pointer;
+    position : absolute;
+    top : 18px;
+    left : 15px;
+    width : 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+  } */
+  
+  ul,li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  ul {
+    padding: 25px;
+    position: absolute;
+    top: 100px;
+    width: 230px;
+  }
+  
+  li {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .icon-placeholder {
+    width: 400px;
+    height: 40px;
+    border-radius: 50%;
+    flex : 40px 0;
+    margin-right: 20px;
+  }
+  
+  .text-placeholder {
+    border-radius: 5px;
+    width: 200px;
+    height: 20px;
+    flex : 1;
+  }
+
+  .navbar {
+    transition: all 150ms ease-out;
+  }
+
+  .navbar-open {
+    transform: translateX(0%);
+  }
+  .navbar-close {
+    transform: translateX(-110%);
+  }
+
+  
+  
+  /* .refresh {
+    padding: 10px;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 20px;
+    height: 20px;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  } */
 }
