@@ -3,6 +3,7 @@ import Homepage from '../components/Home';
 import profilImg from '../assets/img/IMAGE_ME.png';
 import Image from 'next/image';
 import MenuBurger from './MenuBurger';
+import * as dayjs from 'dayjs';
 export default function Home({ sHeight }) {
 	return (
 		<div
@@ -23,7 +24,9 @@ export default function Home({ sHeight }) {
 					Hi there,
 					<br /> I’m <span>Drir Arezki</span>
 					.
-					<br /> 32 yo, <br />
+					<br /> {Math.round(
+						dayjs().diff('1990-03-28', 'year', true)
+					)} y.o. <br />
 					Bordeaux
 					<br />
 					France 🇫🇷

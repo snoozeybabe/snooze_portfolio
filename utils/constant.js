@@ -354,24 +354,24 @@ const tableData = {
 
 const aboutDatas = [
 	{
-		title: '2015 - Hybrid mobile development 📱',
+		title: '2015 - Hybrid mobile development.',
 		description:
 			'My first work was as a junior mobile developer at L’Addtion in Bordeaux. Hybrid developement was an amazing discovery for me.One code for every device.',
 	},
 	{
-		title: '2017 - Business intelligence 📊',
+		title: '2017 - Business intelligence.',
 		description:
-			'But i always loved data, all the aspects of datas, that’s why i became the chief of reporting at L’Addition. That was my first BI experience.My job was to re-create a brand new reporting for our customers.',
+			'But i always loved data, all the aspects of datas, that’s why i became the chief of reporting at L’Addition. That was my first BI experience.My job was to re-create a brand new reporting and dashboards for our customers.',
 	},
 	{
-		title: '2019 - Next level BI ⏭️',
+		title: '2019 - Next level BI.',
 		description:
-			'Started to move to another type of BI. I left the software to develop new dashboards and report with modern web technologies.',
+			'Moved to another type of BI. I stopped using Arcplan (software) to create handmade dahsboards with web and dataviz frameworks.',
 	},
 	{
-		title: 'Now 🥳',
+		title: 'Now.',
 		description:
-			'Still in love with datas i’m trying to level up my skills about data analysis and data science by learning new tools and languages like Python. On my free time i like testing and playing with new frameworks and tools.',
+			'Still working and enjoying datas at the same time i’m woking on increasing my skills about data analysis by learning new tools like Snowflake or Airflow.',
 	},
 ];
 

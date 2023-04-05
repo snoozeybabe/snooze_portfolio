@@ -40,13 +40,13 @@ export default function Skills({ isMobile }) {
 	};
 
 	const getDailyCards = cardDatas => {
-		return cardDatas.map((ic,idx) => {
+		return cardDatas.map((ic, idx) => {
 			return (
 				<React.Fragment>
 					{isMobile ? (
 						<div
-						key={idx + 40}
-							className="max-w-[130px] h-[120px] relative border border-darkBlue dark:border-lightOrange   flex flex-row items-center"
+							key={idx + 40}
+							className="sm:max-w-[90px] sm:h-[90px] md:max-w-[120px] md:h-[120px] relative border border-darkBlue dark:border-lightOrange   flex flex-row items-center"
 							onClick={e => {
 								setSelectedSkill({
 									title: ic.title,
@@ -56,14 +56,14 @@ export default function Skills({ isMobile }) {
 								setOpenDrawer(!openDrawer);
 							}}>
 							{' '}
-							<div className="w-[80px] h-[80px] mx-[24px] my-[20px]">
+							<div className="w-[80px] h-[80px] md:w-[80px] md:h-[80px] mx-[24px] my-[20px]">
 								{ic.icon}
 							</div>
 						</div>
 					) : (
 						<div
-						key={idx + 40}
-							className="group cursor-pointer  max-w-[120px] h-[120px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
+							key={idx + 40}
+							className="group cursor-pointer  md:max-w-[120px] md:h-[120px] items-center relative border   border-lightOrange dark:border-lightOrange  flex flex-row fade-in-up "
 							onClick={e => {}}>
 							{' '}
 							<a href={ic.url} target="_blank">
@@ -91,7 +91,9 @@ export default function Skills({ isMobile }) {
 
 	const getProjectsScreens = () => {
 		return imgList.map((imgComponent, idx) => (
-			<div key={idx + 200} className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
+			<div
+				key={idx + 200}
+				className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
 				<Image src={imgComponent} fill="true" objectFit="contain" />
 			</div>
 		));

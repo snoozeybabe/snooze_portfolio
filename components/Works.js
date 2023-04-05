@@ -10,17 +10,19 @@ const getWorksDatas = d => {
 		<table className="table-auto min-w-full text-left">
 			<thead className="dark:bg-lightOrange dark:text-darkBlue border">
 				<tr className="border border-darkBlue  dark:border-lightOrange ">
-					{d.headers.map((h,idx) => (
-						<th key={idx+60} className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
+					{d.headers.map((h, idx) => (
+						<th
+							key={idx + 60}
+							className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:border-darkBlue dark:bg-ligthBlue dark:text-darkBlue  text-center">
 							{h}
 						</th>
 					))}
 				</tr>
 			</thead>
 			<tbody>
-				{d.datas.map((row,idx) => {
+				{d.datas.map((row, idx) => {
 					return (
-						<tr className="border text-center" key={idx+ 100}>
+						<tr className="border text-center" key={idx + 100}>
 							<td className="border border-darkBlue dark:border-ligthBlue  ">
 								{row.id}
 							</td>
@@ -132,7 +134,7 @@ export default function Works({ isMobile }) {
 	const refPrev = useRef(null);
 
 	const getMobileTables = (tData, tHeaders) => {
-		Number(Math.random() *1000).toFixed(0)
+		Number(Math.random() * 1000).toFixed(0);
 		return tData.map((t, idx) => {
 			const tProps =
 				idx === nextDisplay
@@ -147,7 +149,7 @@ export default function Works({ isMobile }) {
 						className="min-h-full min-w-[80%] border border-darkBlue dark:border-ligthBlue text-center snap-center"
 						id={idx}
 						{...tProps}>
-						<thead className="border"  key={idx + 30}>
+						<thead className="border" key={idx + 30}>
 							<tr key={idx + 20}>
 								<th className="border border-ligthBlue bg-darkBlue text-ligthBlue  dark:bg-ligthBlue dark:text-darkBlue">
 									field
@@ -158,9 +160,11 @@ export default function Works({ isMobile }) {
 							</tr>
 						</thead>
 						<tbody>
-							{tHeaders.map((h,idx) => {
+							{tHeaders.map((h, idx) => {
 								return (
-									<tr key={idx + 50} className="borderborder-darkBlue dark:border-ligthBlue ">
+									<tr
+										key={idx + 50}
+										className="borderborder-darkBlue dark:border-ligthBlue ">
 										<td className="border border-darkBlue dark:border-ligthBlue ">
 											{h}
 										</td>
@@ -191,7 +195,7 @@ export default function Works({ isMobile }) {
 					</div>
 					<div className="relative flex flex-col justify-center overflow-hidden bg-none py-12">
 						<div
-							className=" relative  h-[50vh]  ml-4 flex overflow-scroll gap-3 scroll-smooth snap-mandatory snap-y"
+							className=" relative  h-auto ml-4 flex overflow-scroll gap-3 scroll-smooth snap-mandatory snap-y"
 							id="mobileContainer">
 							{getMobileTables(tableData.datas, tableData.headers)}
 						</div>
