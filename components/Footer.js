@@ -52,7 +52,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 				<div className="m-0 h-16 flex flex-row ml-2 mr-2 text-darkBlue dark:text-ligthBlue">
 					<motion.div
 						variants={variantsBis}
-						className="flex"
+						className="flex w-[100%] items-center"
 						animate={nextLabel === null ? 'exit' : 'animate'}>
 						<div className="w-[10%] flex flex-row items-center">
 							<a
@@ -68,10 +68,9 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 								<TwitterSvg fillColor={fillSvg} />
 							</a>
 						</div>
-					</motion.div>
-					<div
+						<div
 						id="btnFooter"
-						className="w-auto flex flex-col justify-around m-auto items-center sm:pl-[115px]">
+						className="w-auto flex flex-col justify-around m-auto items-center pr-[10%] ">
 						<Link
 							href={
 								ROUTES[nextIndex] && ROUTES[nextIndex].path !== ''
@@ -97,6 +96,7 @@ const TestFooter = ({ nextLabel, actualRoute }) => {
 						</Link>
 						{nextLabel !== null ? <ArrowDown fillColor={fillColor} /> : null}
 					</div>
+					</motion.div>
 				</div>
 			</div>
 		</React.Fragment>
