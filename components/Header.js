@@ -54,7 +54,7 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 	const [nextIndex, setNextIdx] = useState(1);
 	const [prevIndex, setPrevIdx] = useState(0);
 	const { theme, setTheme } = useTheme();
-	const [marginSlider, setMarginSlider] = useState('0px');
+	const [marginSlider, setMarginSlider] = useState('20px');
 	const [drawerOpen, toggleDrawerOpen] = useState(false);
 	const { state, dispatch } = useContext(GlobalContext);
 	const [themeLabel, setThemeLabel] = useState('Light');
@@ -78,9 +78,8 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 	//To-Do test useReducer for changing state sur l'évolution des headers.
 
 	useEffect(() => {
-		let newMarginSlider = `${(position * 105)}px`;
+		let newMarginSlider = `${( position * 105) + 20}px`;
 		setMarginSlider(newMarginSlider)
-
 		return () => {};
 	}, [position]);
 
@@ -138,7 +137,7 @@ const TestHeader = ({ previousLabel, isMobile }) => {
 					</div>
 				) : (
 					<div className="w-[65%] flex flex-col justify-end">
-						<ul className="list-none flex flex-row items-center w-[80%] h-[80%]  justify-start gap-[25px]">
+						<ul className="list-none flex flex-row items-center w-[80%] h-[80%] ml-[20px] justify-start gap-[25px]">
 							{getHeaderItems()}
 						</ul>
 						<span

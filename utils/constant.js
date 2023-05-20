@@ -32,12 +32,12 @@ const headersParams = [
 	{
 		label: 'About',
 		idSection: 'sec-about',
-		marginSlider: '105px',
+		marginSlider: '125px',
 	},
 	{
 		label: 'Skills',
 		idSection: 'sec-skills',
-		marginSlider: '210px',
+		marginSlider: '220px',
 	},
 	{
 		label: 'Works',
