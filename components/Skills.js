@@ -7,6 +7,7 @@ import reportingComptability from '../assets/img/reporting_v_compt.png';
 import reportingDashboard from '../assets/img/reporting_dashboard.png';
 import reportingProduct from '../assets/img/reporting_v_product.png';
 import reportingArcplan from '../assets/img/reporting_arcplan.png';
+import astroDashboard from '../assets/img/astro_football.png';
 import reactSorami from '../assets/img/react_sorami.jpeg';
 import Image from 'next/image';
 export default function Skills({ isMobile }) {
@@ -84,16 +85,18 @@ export default function Skills({ isMobile }) {
 	let imgList = [
 		reportingDashboard,
 		reportingProduct,
-		reportingComptability,
-		reportingArcplan,
 		reactSorami,
+		astroDashboard,
+		reportingComptability,
+		reportingArcplan
+	
 	];
 
 	const getProjectsScreens = () => {
 		return imgList.map((imgComponent, idx) => (
 			<div
 				key={idx + 200}
-				className=" relativeborder border-darkBlue dark:border-ligthBlue w-[300px] h-[150px]">
+				className=" relativeborder border-darkBlue dark:border-ligthBlue w-[500px] h-[250px]">
 				<Image src={imgComponent} fill="true" objectFit="contain" />
 			</div>
 		));
